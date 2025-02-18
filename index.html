@@ -15,13 +15,36 @@
         }
 
         body {
+            overflow: hidden; /* Disables both horizontal and vertical scrolling */
             font-family: arial, sans-serif;
         }
 
         /* Navigation bar */
         nav {
             background-color: #7c441c;  /* Brown background */
-            padding: 25px 0;
+            padding: 25px 0px;
+        }
+        
+        .background {
+            background-position: center 100%;  /* Center the image */
+            background-image: url('Scrolling_Background.jpg'); /* Path to your local image */
+            background-size: 1600px 700px; 
+            height: 100%;  /* Ensure the body takes up the full viewport height */
+            margin: 20;  /* Remove any default margin */
+            position: fixed;  /* Keeps the background fixed to the screen */
+            top: 0;            /* Aligns it to the top */
+            left: 0;           /* Aligns it to the left */
+            width: 200%;       /* Full width */
+            height: 100vh;     /* Full viewport height */
+            z-index: -1;       /* Puts the background behind all content */
+            animation: scrollBackground 11s linear infinite;
+        }@keyframes scrollBackground {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(-50%);
+            }
         }
 
         /* Menu list */
@@ -38,11 +61,13 @@
         }
         
         .container {
+            position: relative;  /* Ensures container stays above background */
+            z-index: 1;  /* Makes sure container is above the background */
             display: flex;
-            justify-content: center;  /* Center horizontally */
-            align-items: center;  /* Center vertically */
-            height: 100vh;  /* Full viewport height */
-            background-color: #c4813d;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;  /* Full height */
         }
 
         /* Button styling */
@@ -116,13 +141,14 @@
         }.creditsbutton:hover {
             background-color: #eff2f5;
         } 
-        
+
     </style>
 
     <nav>
         <ul class="menu">
             <li>Insert Logo Here</li>  <!-- Placeholder for logo image -->
         </ul>
+        <div class = "background"> </div>
     </nav>
 
     <div class="container">
