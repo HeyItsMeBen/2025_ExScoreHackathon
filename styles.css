@@ -9,16 +9,21 @@ body {
     font-family: arial, sans-serif;
 }
 
+img {
+    width: 150%;
+    height: auto;
+}
+
 /* Navigation bar */
 nav {
     background-color: #7c441c;  /* Brown background */
-    padding: 25px 0px;
+    padding: 20px 0px;
 }
 
 .background {
     background-position: center 100%;  /* Center the image */
-    background-image: url('Scrolling_Background.jpg'); /* Path to your local image */
-    background-size: 1600px 700px; 
+    background-image: url('Background.png'); /* Path to your local image */
+    background-size: 2200px 700px; 
     height: 100%;  /* Ensure the body takes up the full viewport height */
     margin: 20;  /* Remove any default margin */
     position: fixed;  /* Keeps the background fixed to the screen */
@@ -27,7 +32,7 @@ nav {
     width: 200%;       /* Full width */
     height: 100vh;     /* Full viewport height */
     z-index: -1;       /* Puts the background behind all content */
-    animation: scrollBackground 11s linear infinite;
+    animation: scrollBackground 20s linear infinite;
 }@keyframes scrollBackground {
     from {
         transform: translateX(0);
@@ -65,21 +70,15 @@ nav {
     position: absolute;
     width: 200px;
     height: 100px;
-    background-color: #606b72;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
-    font-size: 18px;
     border: none;
     cursor: pointer;
     border-radius: 5px;
-    transition: background 0.5s ease;
     transform: translateY(-125px);
     margin-top: -50px; /* Adjust the value to move it up more or less */
     animation: idleAnimation1 3s infinite alternate;
-} .playbutton:hover {
-    background-color: #eff2f5;
 } @keyframes idleAnimation1 {
     0% {
         transform: translateY(-125); /* Starting position */

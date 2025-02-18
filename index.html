@@ -15,7 +15,18 @@
     </nav>
 
     <div class="container">
-        <div class="playbutton">Play</div> <!-- Button text directly in the div -->
+        
+        <div class="playbutton"><img src="Play_Button_Idle.png" alt="Play Button" id = "hoverOverPlay"></div> <!-- Button text directly in the div -->    
+        <script>
+            const playbutton = document.getElementById('hoverOverPlay');
+            playbutton.addEventListener('mouseover', () => { 
+                playbutton.src = "Play_Button_Hover.png"; // Change image on hover
+            });
+            playbutton.addEventListener('mouseout', () => {
+                playbutton.src = "Play_Button_Idle.png"; // Revert back when hover ends
+            });
+        </script>
+
         <div class="aboutbutton">About</div> <!-- Button text directly in the div -->
         <div class="creditsbutton">Credits</div> <!-- Button text directly in the div -->
     </div>
