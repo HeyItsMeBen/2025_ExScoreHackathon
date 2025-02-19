@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project</title>
+    <link rel="stylesheet" href="styles.css"> 
+</head>
+<body>
+    
+    <div class="container">
+        
+        <div class="playbutton"><img src="Play_Button_Idle.png" alt="Play Button" id = "hoverOverPlay"></div> <!-- Button text directly in the div -->    
+        <script>
+            const playbutton = document.getElementById('hoverOverPlay');
+            playbutton.addEventListener('mouseover', () => { 
+                playbutton.src = "Play_Button_Hover.png"; // Change image on hover
+            });
+            playbutton.addEventListener('mouseout', () => {
+                playbutton.src = "Play_Button_Idle.png"; // Revert back when hover ends
+            });
+            playbutton.addEventListener('click', () => {
+                //playbutton.src = "About_Hover.png"; // Revert back when hover ends
+                document.getElementById("hoverOverPlay").classList.add("hidden");
+                //document.getElementById("hoverOverAbout").src = "Credits_hover.png";
+                //playbutton.replace("Credits_hover.png"); // Revert back when hover ends
+
+                //document.getElementById("hoverOverPlay").classList.replace("visible", "hidden"); // Revert back when hover ends
+            });
+        </script>
+
+    <div class="aboutbutton"><img src="About_Idle.png" alt="About Button" id = "hoverOverAbout"></div> <!-- Button text directly in the div -->    
+        <script>
+            const aboutbutton = document.getElementById('hoverOverAbout');
+            aboutbutton.addEventListener('mouseover', () => { 
+                aboutbutton.src = "About_Hover.png"; // Change image on hover
+            });
+            aboutbutton.addEventListener('mouseout', () => {
+                aboutbutton.src = "About_Idle.png"; // Revert back when hover ends
+            });
+        </script>
+
+</body>
+</html>

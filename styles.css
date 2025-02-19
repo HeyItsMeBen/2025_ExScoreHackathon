@@ -14,16 +14,11 @@ img {
     height: auto;
 }
 
-/* Navigation bar */
-nav {
-    background-color: #7c441c;  /* Brown background */
-    padding: 20px 0px;
-}
-
 .background {
     background-position: center 100%;  /* Center the image */
     background-image: url('Background.png'); /* Path to your local image */
-    background-size: 2200px 700px; 
+    will-change: transform;
+    background-size: 2300px 800px; 
     height: 100%;  /* Ensure the body takes up the full viewport height */
     margin: 20;  /* Remove any default margin */
     position: fixed;  /* Keeps the background fixed to the screen */
@@ -43,16 +38,17 @@ nav {
 }
 
 /* Menu list */
-.menu {
+.title {
     list-style: none;
     display: flex;
     justify-content: center;
-} .menu li {  /* Correcting the selector */
+} .title li {  /* Correcting the selector */
     margin: 0 15px;
     text-decoration: none;
     color: rgb(255, 255, 255);
     font-size: 18px;
     padding: 10px 20px;
+    transition: translateY(100px);
 }
 
 .container {
@@ -68,65 +64,95 @@ nav {
 /* Button styling */
 .playbutton {
     position: absolute;
-    width: 200px;
-    height: 100px;
+    width: 300px;
+    height: 150px;
     display: flex;
     justify-content: center;
     align-items: center;
     border: none;
     cursor: pointer;
     border-radius: 5px;
-    transform: translateY(-125px);
+    transform: translateY(0px);
     margin-top: -50px; /* Adjust the value to move it up more or less */
-    animation: idleAnimation1 3s infinite alternate;
-} @keyframes idleAnimation1 {
+    animation: idleAnimation 3s infinite alternate;
+} @keyframes idleAnimation {
     0% {
-        transform: translateY(-125); /* Starting position */
+        transform: translateY(0); /* Starting position */
     }
     50% {
-        transform: translateY(-130px); /* Moves up */
+        transform: translateY(-15px); /* Moves up */
     }
     100% {
-        transform: translateY(-125); /* Moves back down */
+        transform: translateY(0); /* Moves back down */
     }
 }
 
-.aboutbutton {
+.aboutbutton{
     position: absolute;
-    width: 150px;
-    height: 75px;
-    background-color: #606b72;
+    width: 200px;
+    height: 125px;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
-    font-size: 18px;
     border: none;
     cursor: pointer;
     border-radius: 5px;
-    transition: background 0.5s ease;
-    transform: translateY(0px);
+    transform: translateY(125px);
     margin-top: -50px; /* Adjust the value to move it up more or less */
-}.aboutbutton:hover {
-    background-color: #eff2f5;
-} 
+}
 
 .creditsbutton {
     position: absolute;
-    width: 150px;
-    height: 75px;
-    background-color: #606b72;
+    width: 200px;
+    height: 125px;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
-    font-size: 18px;
     border: none;
     cursor: pointer;
     border-radius: 5px;
-    transition: background 0.5s ease;
-    transform: translateY(100px);
+    transform: translateY(225px);
     margin-top: -50px; /* Adjust the value to move it up more or less */
-}.creditsbutton:hover {
-    background-color: #eff2f5;
-} 
+}
+
+.backArrow {
+    position: absolute;
+    width: 200px;
+    height: 125px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transform: translateY(225px);
+    margin-top: -50px; /* Adjust the value to move it up more or less */
+}
+
+.hidden {
+    animation: fade 1s ease-out forwards;
+} @keyframes fade {
+    0% {
+        opacity: 1; /* Fully visible */
+    }
+    100% {
+        opacity: 0; /* Fully transparent */
+        display: none;
+    }
+}
+
+.visible {
+    animation: show 1s ease-out forwards;
+} @keyframes show {
+    0% {
+        opacity: 0; /* Fully transparent */
+    }
+    100% {
+        opacity: 1; /* Fully visible */
+        display: block;
+    }
+}
+.visible {
+    transform: translateX(0);
+    opacity: 1;
+}
