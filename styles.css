@@ -53,17 +53,19 @@ img {
 
 .container {
     position: relative;  /* Ensures container stays above background */
-    z-index: 1;  /* Makes sure container is above the background */
+    z-index: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    overflow: visible;
     height: 100vh;  /* Full height */
 }
 
 /* Button styling */
 .playbutton {
-    position: absolute;
+    position: relative;
+    z-index: 11;
     width: 300px;
     height: 150px;
     display: flex;
@@ -89,6 +91,7 @@ img {
 
 .aboutbutton{
     position: absolute;
+    z-index: 11;
     width: 200px;
     height: 125px;
     display: flex;
@@ -103,6 +106,7 @@ img {
 
 .creditsbutton {
     position: absolute;
+    z-index: 11;
     width: 200px;
     height: 125px;
     display: flex;
@@ -115,8 +119,9 @@ img {
     margin-top: -50px; /* Adjust the value to move it up more or less */
 }
 
-.backArrow {
+.backArrowPlay {
     position: absolute;
+    z-index: 10;
     width: 400px;
     height: 200px;
     display: flex;
@@ -125,12 +130,43 @@ img {
     border: none;
     cursor: default;
     border-radius: 5px;
-    transform: translate(-625px, -275px); /* X, Y */
+    transform: translate(-300px, -275px); /* X, Y -625px */
+    margin-top: -50px; /* Adjust the value to move it up more or less */
+} 
+
+.backArrowAbout {
+    position: absolute;
+    z-index: 10;
+    width: 400px;
+    height: 200px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border: none;
+    cursor: default;
+    border-radius: 5px;
+    transform: translate(-300px, -275px); /* X, Y */
+    margin-top: -50px; /* Adjust the value to move it up more or less */
+} 
+
+.backArrowCredits {
+    position: absolute;
+    z-index: 10;
+    width: 400px;
+    height: 200px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border: none;
+    cursor: default;
+    border-radius: 5px;
+    transform: translate(-300px, -275px); /* X, Y */
     margin-top: -50px; /* Adjust the value to move it up more or less */
 } 
 
 .hide {
     animation: fade 0.5s ease-out forwards;
+    pointer-events: none;
 } @keyframes fade {
     0% {
         opacity: 1; /* Fully visible */
@@ -144,10 +180,12 @@ img {
 .fastHide {
     opacity: 0;
     display: none;
+
 } 
 
 .show {
     animation: view 0.5s ease-in forwards;
+    pointer-events: auto;
 } @keyframes view {
     0% {
         opacity: 0; /* Fully transparent */
@@ -157,3 +195,28 @@ img {
         display: flex;
     }
 }
+
+.fastShow {
+    opacity: 1;
+    display: flex;
+}
+
+.credits {
+    position: absolute;
+    width: 500px; /* Box width */
+    padding: 20px; /* Space inside the box */
+    background-color: rgb(247, 203, 99); /* Background color */
+    border: 10px solid black; /* Border */
+    border-radius: 10px; /* Rounded corners */
+    text-align: center; /* Center the text */
+    font-size: 18px; /* Text size */
+    font-family: 'Press Start 2P', sans-serif;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    word-wrap: break-word;
+    margin: 0 15px;
+    font-size: 24px;
+    transform: translateY(-50px);
+    z-index: 10;
+} 
