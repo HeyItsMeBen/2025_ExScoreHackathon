@@ -70,7 +70,7 @@ img {
     justify-content: center;
     align-items: center;
     border: none;
-    cursor: pointer;
+    cursor: default;
     border-radius: 5px;
     transform: translateY(0px);
     margin-top: -50px; /* Adjust the value to move it up more or less */
@@ -95,7 +95,7 @@ img {
     justify-content: center;
     align-items: center;
     border: none;
-    cursor: pointer;
+    cursor: default;
     border-radius: 5px;
     transform: translateY(125px);
     margin-top: -50px; /* Adjust the value to move it up more or less */
@@ -109,7 +109,7 @@ img {
     justify-content: center;
     align-items: center;
     border: none;
-    cursor: pointer;
+    cursor: default;
     border-radius: 5px;
     transform: translateY(225px);
     margin-top: -50px; /* Adjust the value to move it up more or less */
@@ -117,20 +117,20 @@ img {
 
 .backArrow {
     position: absolute;
-    width: 200px;
-    height: 125px;
+    width: 400px;
+    height: 200px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     border: none;
-    cursor: pointer;
+    cursor: default;
     border-radius: 5px;
-    transform: translateY(225px);
+    transform: translate(-625px, -275px); /* X, Y */
     margin-top: -50px; /* Adjust the value to move it up more or less */
-}
+} 
 
-.hidden {
-    animation: fade 1s ease-out forwards;
+.hide {
+    animation: fade 0.5s ease-out forwards;
 } @keyframes fade {
     0% {
         opacity: 1; /* Fully visible */
@@ -141,18 +141,19 @@ img {
     }
 }
 
-.visible {
-    animation: show 1s ease-out forwards;
-} @keyframes show {
+.fastHide {
+    opacity: 0;
+    display: none;
+} 
+
+.show {
+    animation: view 0.5s ease-in forwards;
+} @keyframes view {
     0% {
         opacity: 0; /* Fully transparent */
     }
     100% {
         opacity: 1; /* Fully visible */
-        display: block;
+        display: flex;
     }
-}
-.visible {
-    transform: translateX(0);
-    opacity: 1;
 }
