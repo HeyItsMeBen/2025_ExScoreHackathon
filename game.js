@@ -2,32 +2,59 @@ import { resources } from "./Resource.js";
 import { Sprite } from "./Sprite.js";
 import { Vector2 } from "./Vector2.js";
 import { GameLoop } from "./GameLoop.js";
-import { Input } from "./Input.js";
+import { DOWN, Input, LEFT, RIGHT, UP } from "./Input.js";
+import { WALK_DOWN, WALK_LEFT, WALK_RIGHT, WALK_UP,STAND_DOWN, STAND_LEFT, STAND_RIGHT, STAND_UP} from "./playerAnimations.js";
+import { FrameIndexPattern } from "./FrameIndexPattern.js";
+import { Animations } from "./Animations.js";
 
+let charFacing = DOWN;
 const canvas = document.querySelector("#game-canvas");
 const ctx = canvas.getContext("2d");
 const input = new Input();
-const speed = 10;
+const speed = 7;
 const update = () =>{
-    if (input.direction === "UP") {
+    male_sprite.step(1000/60);
+    if (!input.direction){
+        if (charFacing == UP){male_sprite.animations.play("standUp");}
+        if (charFacing == DOWN){male_sprite.animations.play("standDown");}
+        if (charFacing == LEFT){male_sprite.animations.play("standLeft");}
+        if (charFacing == RIGHT){male_sprite.animations.play("standRight");}
+        return;
+    }
+    if (input.direction === UP) {
         spritePos.y -= speed;
+        male_sprite.animations.play("walkUp");
     }
-    if (input.direction === "DOWN") {
+    if (input.direction === DOWN) {
         spritePos.y += speed;
+        male_sprite.animations.play("walkDown");
     }
-    if (input.direction === "LEFT") {
+    if (input.direction === LEFT) {
         spritePos.x -= speed;
+        male_sprite.animations.play("walkLeft");
     }
-    if (input.direction === "RIGHT") {
+    if (input.direction === RIGHT) {
         spritePos.x += speed;
+        male_sprite.animations.play("walkRight");
     }
+    charFacing = input.direction ?? charFacing;
 }
 const male_sprite = new Sprite({
     resource: resources.images.male_sprite,
     frameSize: new Vector2(250,250),
     hFrames: 4,
     vFrames:4,
-    frame:0
+    frame:0,
+    animations: new Animations({
+        walkDown: new FrameIndexPattern(WALK_DOWN),
+        walkRight: new FrameIndexPattern(WALK_RIGHT),
+        walkUp: new FrameIndexPattern(WALK_UP),
+        walkLeft: new FrameIndexPattern(WALK_LEFT),
+        standDown: new FrameIndexPattern(STAND_DOWN),
+        standRight: new FrameIndexPattern(STAND_RIGHT),
+        standUp: new FrameIndexPattern(STAND_UP),
+        standLeft: new FrameIndexPattern(STAND_LEFT),
+    })
 });
 const spritePos = new Vector2(60, 60);
 const draw = () => {
