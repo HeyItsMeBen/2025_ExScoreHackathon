@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
-    
+
     <ul class="title">
         <li>Insert Logo Here</li>  <!-- Placeholder for logo image -->
     </ul>
@@ -54,7 +54,7 @@
             }
         </script>
 
-        <div class="backArrow"><img src="backArrow.png" alt="back" id = "back"></div> 
+        <div class="backArrow" data-size="values"><img src="backArrow.png" alt="back" id = "back"></div> 
             <script>
                 fastHideElements(["back"]);
                 const backArrowPlay = document.getElementById('back');
@@ -62,7 +62,7 @@
                     showElements(["play", "about", "credits"]);
                     fastHideElements(["back"]);
                     if (playClicked == true) {
-                        hideElements(["characterTitle", "locationTitle"]);
+                        hideElements(["characterTitle", "locationTitle", "locationFrance", "TBD1", "TBD2", "TBD3"]);
                     } else if (aboutClicked == true) {
                         hideElements(["aboutDisplay"]);
                     } else if (creditsClicked == true) {
@@ -74,7 +74,7 @@
                 });
             </script> 
 
-        <div class="playbutton"><img src="Play_Button_Idle.png" alt="Play Button" id = "play"></div>  
+        <div class="playbutton" data-values = "values"><img src="Play_Button_Idle.png" alt="Play Button" id = "play"></div>  
             <script>
                 const play = document.getElementById('play');
                 play.addEventListener('mouseover', () => { 
@@ -87,11 +87,11 @@
                     playClicked = true;
                     hideElements(["play", "about", "credits"]);
                     fastShowElements(["back"]);
-                    showElements(["characterTitle", "locationTitle"]);
+                    showElements(["characterTitle", "locationTitle", "locationFrance", "TBD1", "TBD2", "TBD3"]);
                 });
             </script>
 
-        <div class="aboutbutton"><img src="About_Idle.png" alt="About Button" id = "about"></div> 
+        <div class="aboutbutton" data-position = "position"><img src="About_Idle.png" alt="About Button" id = "about"></div> 
             <script>
                 const about = document.getElementById('about');
                 about.addEventListener('mouseover', () => { 
@@ -108,7 +108,7 @@
                 });
             </script>
         
-        <div class="creditsbutton"><img src="Credits_idle.png" alt="Credits Button" id = "credits"></div> 
+        <div class="creditsbutton" data-position = "position"><img src="Credits_idle.png" alt="Credits Button" id = "credits"></div> 
             <script>
                 const credits = document.getElementById('credits');
                 credits.addEventListener('mouseover', () => { 
@@ -195,17 +195,34 @@
 
         </div> 
 
-        <div class="selectCharacterTitle", id = "characterTitle">Select Character</div>  
+        <div class="columnTitle" data-position="Translate 350px, -225px", id = "characterTitle">Select Character</div>  
             <script>
                 fastHideElements(["characterTitle"]);
             </script> 
 
-        <div class="selectMapTitle", id = "locationTitle">Select Location</div>  
+        <div class="columnTitle" data-position="Translate -350px, -225px", id = "locationTitle">Select Location</div>  
             <script>
                 fastHideElements(["locationTitle"]);
             </script> 
+        
+        <div class="location" data-font = "location-font" data-place = "France", id = "locationFrance">France, 1792</div>  
+            <script>
+                fastHideElements(["locationFrance"]);
+            </script> 
+        <div class="location" data-font = "location-font" data-place = "TBD1", id = "TBD1">Coming Soon!</div>  
+            <script>
+                fastHideElements(["TBD1"]);
+            </script> 
+        <div class="location" data-font = "location-font" data-place = "TBD2", id = "TBD2">Coming Soon!</div>  
+            <script>
+                fastHideElements(["TBD2"]);
+            </script> 
+
+        <div class="location" data-font = "location-font" data-place = "TBD3", id = "TBD3">Coming Soon!</div>  
+            <script>
+                fastHideElements(["TBD3"]);
+            </script> 
 
     </div>
-
 </body>
 </html>

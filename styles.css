@@ -28,27 +28,13 @@ img {
     height: 100vh;     /* Full viewport height */
     z-index: -1;       /* Puts the background behind all content */
     animation: scrollBackground 20s linear infinite;
-}@keyframes scrollBackground {
-    from {
-        transform: translateX(0);
-    }
-    to {
-        transform: translateX(-50%);
-    }
 }
 
 /* Menu list */
-.title {
+.logo {
     list-style: none;
     display: flex;
     justify-content: center;
-} .title li {  /* Correcting the selector */
-    margin: 0 15px;
-    text-decoration: none;
-    color: rgb(255, 255, 255);
-    font-size: 18px;
-    padding: 10px 20px;
-    transition: translateY(100px);
 }
 
 .container {
@@ -62,90 +48,41 @@ img {
     height: 100vh;  /* Full height */
 }
 
-/* Button styling */
-.playbutton {
-    position: relative;
+.playbutton, .aboutbutton, .creditsbutton, .backArrow {
+    position: absolute;
     z-index: 11;
+    width: 200px;
+    height: 125px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    cursor: default;
+    border-radius: 5px;
+    margin-top: -50px; /* Adjust the value to move it up more or less */
+}
+.playbutton[data-values = "values"] {
     width: 300px;
     height: 150px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: none;
-    cursor: default;
-    border-radius: 5px;
     transform: translateY(0px);
-    margin-top: -50px; /* Adjust the value to move it up more or less */
     animation: idleAnimation 3s infinite alternate;
-} @keyframes idleAnimation {
-    0% {
-        transform: translateY(0); /* Starting position */
-    }
-    50% {
-        transform: translateY(-15px); /* Moves up */
-    }
-    100% {
-        transform: translateY(0); /* Moves back down */
-    }
 }
-
-.aboutbutton{
-    position: absolute;
-    z-index: 11;
-    width: 200px;
-    height: 125px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: none;
-    cursor: default;
-    border-radius: 5px;
+.aboutbutton[data-position = "position"] {
     transform: translateY(125px);
-    margin-top: -50px; /* Adjust the value to move it up more or less */
 }
-
-.creditsbutton {
-    position: absolute;
-    z-index: 11;
-    width: 200px;
-    height: 125px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: none;
-    cursor: default;
-    border-radius: 5px;
+.creditsbutton[data-position = "position"] {
     transform: translateY(225px);
-    margin-top: -50px; /* Adjust the value to move it up more or less */
 }
-
-.backArrow {
-    position: absolute;
-    z-index: 11;
+.backArrow[data-size = "values"]{
     width: 400px;
     height: 200px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    border: none;
-    cursor: default;
-    border-radius: 5px;
     transform: translate(-625px, -275px); /* X, Y */
-    margin-top: -50px; /* Adjust the value to move it up more or less */
-} 
+}
 
 .hide {
     animation: fade 0.5s ease-out forwards;
     pointer-events: none;
-} @keyframes fade {
-    0% {
-        opacity: 1; /* Fully visible */
-    }
-    100% {
-        opacity: 0; /* Fully transparent */
-        display: none;
-    }
-}
+} 
 
 .fastHide {
     opacity: 0;
@@ -156,15 +93,7 @@ img {
 .show {
     animation: view 0.5s ease-in forwards;
     pointer-events: auto;
-} @keyframes view {
-    0% {
-        opacity: 0; /* Fully transparent */
-    }
-    100% {
-        opacity: 1; /* Fully visible */
-        display: flex;
-    }
-}
+} 
 
 .fastShow {
     opacity: 1;
@@ -191,7 +120,7 @@ img {
     z-index: 10;
 } 
 
-.selectCharacterTitle {
+.columnTitle, .location {
     position: absolute;
     width: 500px; /* Box width */
     padding: 10px; /* Space inside the box */
@@ -205,24 +134,73 @@ img {
     word-wrap: break-word;
     margin: 0 15px;
     font-size: 24px;
+    z-index: 10;
+} 
+.columnTitle[data-position = "Translate 350px, -225px"]{
     transform: translate(350px, -225px);
-    z-index: 10;
-} 
-
-.selectMapTitle {
-    position: absolute;
-    color: rgb(255, 255, 255);
-    width: 500px; /* Box width */
-    padding: 10px; /* Space inside the box */
-    text-align: center; /* Center the text */
-    font-size: 10px; /* Text size */
-    font-family: 'Press Start 2P', sans-serif;
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    word-wrap: break-word;
-    margin: 0 15px;
-    font-size: 24px;
+}
+.columnTitle[data-position = "Translate -350px, -225px"]{
     transform: translate(-350px, -225px);
-    z-index: 10;
-} 
+}
+.location[data-font = "location-font"]{
+    font-size: 20px;
+}
+.location[data-place = "France"] {
+    transform: translate(-350px, -100px);
+}
+.location[data-place = "TBD1"] {
+    transform: translate(-350px, 0px);
+}
+.location[data-place = "TBD2"] {
+    transform: translate(-350px, 100px);
+}
+.location[data-place = "TBD3"] {
+    transform: translate(-350px, 200px);
+}
+
+.shrink-image {
+    width: 25%; /* Shrinks the image to 50% of its original width */
+    height: auto; /* Maintains the aspect ratio */
+}
+/*Keyframes*/
+
+@keyframes scrollBackground {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes idleAnimation {
+    0% {
+        transform: translateY(0); /* Starting position */
+    }
+    50% {
+        transform: translateY(-15px); /* Moves up */
+    }
+    100% {
+        transform: translateY(0); /* Moves back down */
+    }
+}
+
+@keyframes view {
+    0% {
+        opacity: 0; /* Fully transparent */
+    }
+    100% {
+        opacity: 1; /* Fully visible */
+        display: flex;
+    }
+}
+
+@keyframes fade {
+    0% {
+        opacity: 1; /* Fully visible */
+    }
+    100% {
+        opacity: 0; /* Fully transparent */
+        display: none;
+    }
+}
