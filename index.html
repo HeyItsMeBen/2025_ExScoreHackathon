@@ -5,19 +5,207 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project</title>
     <link rel="stylesheet" href="styles.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
-
-    <nav>
-        <ul class="menu">
-            <li>Insert Logo Here</li>  <!-- Placeholder for logo image -->
-        </ul>
-    </nav>
+    
+    <ul class="title">
+        <li>Insert Logo Here</li>  <!-- Placeholder for logo image -->
+    </ul>
+        
+    <div class = "background"></div>
 
     <div class="container">
-        <div class="playbutton">Play</div> <!-- Button text directly in the div -->
-        <div class="aboutbutton">About</div> <!-- Button text directly in the div -->
-        <div class="creditsbutton">Credits</div> <!-- Button text directly in the div -->
+        <script>
+            let playClicked = false;
+            let aboutClicked = false;
+            let creditsClicked = false;
+            function hideElements(ids) {
+                ids.forEach(id => {
+                    document.getElementById(id).classList.add("hide");
+                    document.getElementById(id).classList.remove("show");
+                    document.getElementById(id).classList.remove("fastHide");
+                    document.getElementById(id).classList.remove("fastShow");
+                });
+            }
+            function showElements(ids) {
+                ids.forEach(id => {
+                    document.getElementById(id).classList.remove("hide");
+                    document.getElementById(id).classList.add("show");
+                    document.getElementById(id).classList.remove("fastHide");
+                    document.getElementById(id).classList.remove("fastShow");
+                });
+            }
+            function fastHideElements(ids) {
+                ids.forEach(id => {
+                    document.getElementById(id).classList.remove("hide");
+                    document.getElementById(id).classList.remove("show");
+                    document.getElementById(id).classList.add("fastHide");
+                    document.getElementById(id).classList.remove("fastShow");
+                });
+            }
+            function fastShowElements(ids) {
+                ids.forEach(id => {
+                    document.getElementById(id).classList.remove("hide");
+                    document.getElementById(id).classList.remove("show");
+                    document.getElementById(id).classList.remove("fastHide");
+                    document.getElementById(id).classList.add("fastShow");
+                });
+            }
+        </script>
+
+        <div class="backArrow"><img src="backArrow.png" alt="back" id = "back"></div> 
+            <script>
+                fastHideElements(["back"]);
+                const backArrowPlay = document.getElementById('back');
+                backArrowPlay.addEventListener('click', () => { //go to the play screen
+                    showElements(["play", "about", "credits"]);
+                    fastHideElements(["back"]);
+                    if (playClicked == true) {
+                        hideElements(["characterTitle", "locationTitle"]);
+                    } else if (aboutClicked == true) {
+                        hideElements(["aboutDisplay"]);
+                    } else if (creditsClicked == true) {
+                        hideElements(["creditsDisplay"]);
+                    }
+                    playClicked = false;
+                    aboutClicked = false;
+                    creditsClicked = false;
+                });
+            </script> 
+
+        <div class="playbutton"><img src="Play_Button_Idle.png" alt="Play Button" id = "play"></div>  
+            <script>
+                const play = document.getElementById('play');
+                play.addEventListener('mouseover', () => { 
+                    play.src = "Play_Button_Hover.png"; // Change image on hover
+                });
+                play.addEventListener('mouseout', () => {
+                    play.src = "Play_Button_Idle.png"; // Revert back when hover ends
+                });
+                play.addEventListener('click', () => { //go to the play screen
+                    playClicked = true;
+                    hideElements(["play", "about", "credits"]);
+                    fastShowElements(["back"]);
+                    showElements(["characterTitle", "locationTitle"]);
+                });
+            </script>
+
+        <div class="aboutbutton"><img src="About_Idle.png" alt="About Button" id = "about"></div> 
+            <script>
+                const about = document.getElementById('about');
+                about.addEventListener('mouseover', () => { 
+                    about.src = "About_Hover.png"; // Change image on hover
+                });
+                about.addEventListener('mouseout', () => {
+                    about.src = "About_Idle.png"; // Revert back when hover ends
+                });
+                about.addEventListener('click', () => { //go to the about screen
+                    aboutClicked = true;
+                    hideElements(["play", "about", "credits"]);
+                    fastShowElements(["back"]);
+                    showElements(["aboutDisplay"]);
+                });
+            </script>
+        
+        <div class="creditsbutton"><img src="Credits_idle.png" alt="Credits Button" id = "credits"></div> 
+            <script>
+                const credits = document.getElementById('credits');
+                credits.addEventListener('mouseover', () => { 
+                    credits.src = "Credits_hover.png"; // Change image on hover
+                });
+                credits.addEventListener('mouseout', () => {
+                    credits.src = "Credits_idle.png"; // Revert back when hover ends
+                });
+                credits.addEventListener('click', () => { //go to the credits screen
+                    creditsClicked = true;
+                    hideElements(["play", "about", "credits"]);
+                    fastShowElements(["back"]);
+                    showElements(["creditsDisplay"]);
+                });
+            </script>
+        
+        <div class="info" id = "creditsDisplay" >
+            <script>
+                fastHideElements(["creditsDisplay"]);
+            </script> 
+            Credits
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            Abhignya Sudam
+            <br>
+            <br>
+            <br>
+            <br>
+            Benjamin Lu
+            <br>
+            <br>
+            <br>
+            <br>
+            Caleb Zhang
+            <br>
+            <br>
+            <br>
+            <br>
+            Claire Ma
+            <br>
+            <br>
+            <br>
+            <br>
+            Mingming Qi
+
+        </div> 
+
+        <div class="info" id = "aboutDisplay" >
+            <script>
+                fastHideElements(["aboutDisplay"]);
+            </script> 
+            About
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            _______
+            <br>
+            <br>
+            <br>
+            <br>
+            _______
+            <br>
+            <br>
+            <br>
+            <br>
+            _______
+            <br>
+            <br>
+            <br>
+            <br>
+            _______
+            <br>
+            <br>
+            <br>
+            <br>
+            _______
+
+        </div> 
+
+        <div class="selectCharacterTitle", id = "characterTitle">Select Character</div>  
+            <script>
+                fastHideElements(["characterTitle"]);
+            </script> 
+
+        <div class="selectMapTitle", id = "locationTitle">Select Location</div>  
+            <script>
+                fastHideElements(["locationTitle"]);
+            </script> 
+
     </div>
+
 </body>
 </html>

@@ -5,104 +5,224 @@
 }
 
 body {
+    overflow: hidden; /* Disables both horizontal and vertical scrolling */
     font-family: arial, sans-serif;
 }
 
-/* Navigation bar */
-nav {
-    background-color: #7c441c;  /* Brown background */
-    padding: 25px 0;
+img {
+    width: 150%;
+    height: auto;
+}
+
+.background {
+    background-position: center 100%;  /* Center the image */
+    background-image: url('Background.png'); /* Path to your local image */
+    will-change: transform;
+    background-size: 2300px 800px; 
+    height: 100%;  /* Ensure the body takes up the full viewport height */
+    margin: 20;  /* Remove any default margin */
+    position: fixed;  /* Keeps the background fixed to the screen */
+    top: 0;            /* Aligns it to the top */
+    left: 0;           /* Aligns it to the left */
+    width: 200%;       /* Full width */
+    height: 100vh;     /* Full viewport height */
+    z-index: -1;       /* Puts the background behind all content */
+    animation: scrollBackground 20s linear infinite;
+}@keyframes scrollBackground {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
 }
 
 /* Menu list */
-.menu {
+.title {
     list-style: none;
     display: flex;
     justify-content: center;
-} .menu li {  /* Correcting the selector */
+} .title li {  /* Correcting the selector */
     margin: 0 15px;
     text-decoration: none;
     color: rgb(255, 255, 255);
     font-size: 18px;
     padding: 10px 20px;
+    transition: translateY(100px);
 }
 
 .container {
+    position: relative;  /* Ensures container stays above background */
+    z-index: 1;
     display: flex;
-    justify-content: center;  /* Center horizontally */
-    align-items: center;  /* Center vertically */
-    height: 100vh;  /* Full viewport height */
-    background-color: #c4813d;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: visible;
+    height: 100vh;  /* Full height */
 }
 
 /* Button styling */
 .playbutton {
-    position: absolute;
-    width: 200px;
-    height: 100px;
-    background-color: #606b72;
+    position: relative;
+    z-index: 11;
+    width: 300px;
+    height: 150px;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
-    font-size: 18px;
     border: none;
-    cursor: pointer;
+    cursor: default;
     border-radius: 5px;
-    transition: background 0.5s ease;
-    transform: translateY(-125px);
+    transform: translateY(0px);
     margin-top: -50px; /* Adjust the value to move it up more or less */
-    animation: idleAnimation1 3s infinite alternate;
-} .playbutton:hover {
-    background-color: #eff2f5;
-} @keyframes idleAnimation1 {
+    animation: idleAnimation 3s infinite alternate;
+} @keyframes idleAnimation {
     0% {
-        transform: translateY(-125); /* Starting position */
+        transform: translateY(0); /* Starting position */
     }
     50% {
-        transform: translateY(-130px); /* Moves up */
+        transform: translateY(-15px); /* Moves up */
     }
     100% {
-        transform: translateY(-125); /* Moves back down */
+        transform: translateY(0); /* Moves back down */
     }
 }
 
-.aboutbutton {
+.aboutbutton{
     position: absolute;
-    width: 150px;
-    height: 75px;
-    background-color: #606b72;
+    z-index: 11;
+    width: 200px;
+    height: 125px;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
-    font-size: 18px;
     border: none;
-    cursor: pointer;
+    cursor: default;
     border-radius: 5px;
-    transition: background 0.5s ease;
-    transform: translateY(0px);
+    transform: translateY(125px);
     margin-top: -50px; /* Adjust the value to move it up more or less */
-}.aboutbutton:hover {
-    background-color: #eff2f5;
-} 
+}
 
 .creditsbutton {
     position: absolute;
-    width: 150px;
-    height: 75px;
-    background-color: #606b72;
+    z-index: 11;
+    width: 200px;
+    height: 125px;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
-    font-size: 18px;
     border: none;
-    cursor: pointer;
+    cursor: default;
     border-radius: 5px;
-    transition: background 0.5s ease;
-    transform: translateY(100px);
+    transform: translateY(225px);
     margin-top: -50px; /* Adjust the value to move it up more or less */
-}.creditsbutton:hover {
-    background-color: #eff2f5;
+}
+
+.backArrow {
+    position: absolute;
+    z-index: 11;
+    width: 400px;
+    height: 200px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border: none;
+    cursor: default;
+    border-radius: 5px;
+    transform: translate(-625px, -275px); /* X, Y */
+    margin-top: -50px; /* Adjust the value to move it up more or less */
+} 
+
+.hide {
+    animation: fade 0.5s ease-out forwards;
+    pointer-events: none;
+} @keyframes fade {
+    0% {
+        opacity: 1; /* Fully visible */
+    }
+    100% {
+        opacity: 0; /* Fully transparent */
+        display: none;
+    }
+}
+
+.fastHide {
+    opacity: 0;
+    display: none;
+
+} 
+
+.show {
+    animation: view 0.5s ease-in forwards;
+    pointer-events: auto;
+} @keyframes view {
+    0% {
+        opacity: 0; /* Fully transparent */
+    }
+    100% {
+        opacity: 1; /* Fully visible */
+        display: flex;
+    }
+}
+
+.fastShow {
+    opacity: 1;
+    display: flex;
+}
+
+.info {
+    position: absolute;
+    width: 500px; /* Box width */
+    padding: 20px; /* Space inside the box */
+    background-color: rgb(247, 203, 99); /* Background color */
+    border: 10px solid black; /* Border */
+    border-radius: 10px; /* Rounded corners */
+    text-align: center; /* Center the text */
+    font-size: 18px; /* Text size */
+    font-family: 'Press Start 2P', sans-serif;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    word-wrap: break-word;
+    margin: 0 15px;
+    font-size: 24px;
+    transform: translateY(-50px);
+    z-index: 10;
+} 
+
+.selectCharacterTitle {
+    position: absolute;
+    width: 500px; /* Box width */
+    padding: 10px; /* Space inside the box */
+    text-align: center; /* Center the text */
+    color: rgb(255, 255, 255);
+    font-size: 10px; /* Text size */
+    font-family: 'Press Start 2P', sans-serif;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    word-wrap: break-word;
+    margin: 0 15px;
+    font-size: 24px;
+    transform: translate(350px, -225px);
+    z-index: 10;
+} 
+
+.selectMapTitle {
+    position: absolute;
+    color: rgb(255, 255, 255);
+    width: 500px; /* Box width */
+    padding: 10px; /* Space inside the box */
+    text-align: center; /* Center the text */
+    font-size: 10px; /* Text size */
+    font-family: 'Press Start 2P', sans-serif;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    word-wrap: break-word;
+    margin: 0 15px;
+    font-size: 24px;
+    transform: translate(-350px, -225px);
+    z-index: 10;
 } 

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project</title>
+    <link rel="stylesheet" href="styles.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <ul class="title">
+        <li>Insert Logo Here</li> 
+    </ul>
+        
+    <div class = "background"></div>
+
+    <div class="container" id = "container">
+        <script>
+
+            function hideElements(ids) {
+                ids.forEach(id => {
+                    document.getElementById(id).classList.add("hide");
+                    document.getElementById(id).classList.remove("show");
+                    document.getElementById(id).classList.remove("fastHide");
+                });
+            }
+            function showElements(ids) {
+                ids.forEach(id => {
+                    document.getElementById(id).classList.remove("hide");
+                    document.getElementById(id).classList.add("show");
+                    document.getElementById(id).classList.remove("fastHide");
+                });
+            }
+            function fastHideElements(ids) {
+                ids.forEach(id => {
+                    document.getElementById(id).classList.remove("hide");
+                    document.getElementById(id).classList.remove("show");
+                    document.getElementById(id).classList.add("fastHide");
+                });
+            }
+        </script>
+
+        <div class="backArrowPlay"><img src="backArrow.png" alt="back" id = "back_arrow_playButton"></div> 
+            <script>
+                fastHideElements(["back_arrow_playButton"]);
+                console.log("Before PLAYBUTTON:", window.getComputedStyle(document.getElementById("back_arrow_playButton")).zIndex);
+
+                const backArrowPlay = document.getElementById('back_arrow_playButton');
+                backArrowPlay.addEventListener('click', () => { //go to the play screen
+                    showElements(["play", "credits"]);
+                    hideElements(["back_arrow_playButton"]);
+                });
+            </script> 
+
+        <div class="backArrowCredits"><img src="backArrow.png" alt="back" id = "back_arrow_creditsButton"></div> 
+                <script>
+                    fastHideElements(["back_arrow_creditsButton"]);
+                    const backArrowCredits = document.getElementById('back_arrow_creditsButton');
+                    backArrowCredits.addEventListener('click', () => { //go to the play screen
+                        showElements(["play", "credits"]);
+                        fastHideElements(["back_arrow_playButton", "back_arrow_creditsButton"]);
+                        hideElements(["creditsDisplay"]);
+                    });
+                </script> 
+
+        <div class="playbutton"><img src="Play_Button_Idle.png" alt="Play Button" id = "play"></div>  
+            <script>
+                const play = document.getElementById('play');
+                play.addEventListener('mouseover', () => { 
+                    play.src = "Play_Button_Hover.png"; // Change image on hover
+                });
+                play.addEventListener('mouseout', () => {
+                    play.src = "Play_Button_Idle.png"; // Revert back when hover ends
+                });
+                play.addEventListener('click', () => { //go to the play screen
+                    playButtonClicked = true;
+                    hideElements(["play", "credits"]);
+                    showElements(["back_arrow_playButton"]);
+                });
+            </script>
+        
+        <div class="creditsbutton"><img src="Credits_idle.png" alt="Credits Button" id = "credits"></div> 
+            <script>
+                const credits = document.getElementById('credits');
+                credits.addEventListener('mouseover', () => { 
+                    credits.src = "Credits_hover.png"; // Change image on hover
+                });
+                credits.addEventListener('mouseout', () => {
+                    credits.src = "Credits_idle.png"; // Revert back when hover ends
+                });
+                credits.addEventListener('click', () => { //go to the credits screen
+                    creditsButtonClicked = true;
+                    hideElements(["play", "credits"]);
+                    showElements(["back_arrow_creditsButton"]);
+                    showElements(["creditsDisplay"]);
+                });
+            </script>
+        
+        <div class="credits" id = "creditsDisplay" >
+            <script>
+                fastHideElements(["creditsDisplay"]);
+            </script> 
+            Credits
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            _______
+            <br>
+            <br>
+            <br>
+            <br>
+            _______
+            <br>
+            <br>
+            <br>
+            <br>
+            _______
+            <br>
+            <br>
+            <br>
+            <br>
+            _______
+            <br>
+            <br>
+            <br>
+            <br>
+            _______
+
+        </div> 
+
+    </div>
+
+</body>
+</html>
+
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Z-Index Test</title>
+    <style>
+        .contain {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            background-color: lightgray;
+            z-index: 100000000;
+        }
+
+        .child {
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="contain">
+    <div class="child" id="childElement"></div>
+</div>
+<script>
+   // console.log("Before (window):", window.getComputedStyle("childElement").zIndex);
+    console.log("Before (document)" + document.getElementById('childElement').style.zIndex);
+
+</script>
+
+<button onclick="document.getElementById('childElement').style.zIndex = '9999';">Raise Z-Index
+    <script>
+   // console.log("After (window):", window.getComputedStyle("childElement").zIndex);
+    console.log("After (document)" + document.getElementById('childElement').style.zIndex)
+
+    </script>
+    </button>
+</body>
+</html>
+-->
