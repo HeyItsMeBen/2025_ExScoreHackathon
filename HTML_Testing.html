@@ -1,4 +1,3 @@
-<!--
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,8 +17,6 @@
 
     <div class="container" id = "container">
         <script>
-            console.log("Before container:", window.getComputedStyle(document.getElementById("container")).zIndex);
-
 
             function hideElements(ids) {
                 ids.forEach(id => {
@@ -51,38 +48,21 @@
 
                 const backArrowPlay = document.getElementById('back_arrow_playButton');
                 backArrowPlay.addEventListener('click', () => { //go to the play screen
-                    showElements(["play", "about", "credits"]);
+                    showElements(["play", "credits"]);
                     hideElements(["back_arrow_playButton"]);
                 });
             </script> 
 
-        <div class="backArrowAbout"><img src="backArrow.png" alt="back" id = "back_arrow_aboutButton"></div> 
-            <script>
-                fastHideElements(["back_arrow_aboutButton"]);
-                const backArrowAbout = document.getElementById('back_arrow_aboutButton');
-                backArrowAbout.addEventListener('click', () => { //go to the play screen
-                    showElements(["play", "about", "credits"]);
-                    hideElements(["back_arrow_aboutButton"]);
-                });
-                let element = document.getElementById("back_arrow_playButton");
-                console.log("Before backArrowPNG:", window.getComputedStyle(element).zIndex);
-                element.style.zIndex = "10";
-                console.log("After:", window.getComputedStyle(element).zIndex);
-                element.style.zIndex = "22";
-                console.log("After:", window.getComputedStyle(element).zIndex);
-
-            </script>  
-
         <div class="backArrowCredits"><img src="backArrow.png" alt="back" id = "back_arrow_creditsButton"></div> 
-            <script>
-                fastHideElements(["back_arrow_creditsButton"]);
-                const backArrowCredits = document.getElementById('back_arrow_creditsButton');
-                backArrowCredits.addEventListener('click', () => { //go to the play screen
-                    showElements(["play", "about", "credits"]);
-                    hideElements(["back_arrow_creditsButton"]);
-                    hideElements(["creditsDisplay"]);
-                });
-            </script>  
+                <script>
+                    fastHideElements(["back_arrow_creditsButton"]);
+                    const backArrowCredits = document.getElementById('back_arrow_creditsButton');
+                    backArrowCredits.addEventListener('click', () => { //go to the play screen
+                        showElements(["play", "credits"]);
+                        fastHideElements(["back_arrow_playButton", "back_arrow_creditsButton"]);
+                        hideElements(["creditsDisplay"]);
+                    });
+                </script> 
 
         <div class="playbutton"><img src="Play_Button_Idle.png" alt="Play Button" id = "play"></div>  
             <script>
@@ -95,24 +75,8 @@
                 });
                 play.addEventListener('click', () => { //go to the play screen
                     playButtonClicked = true;
-                    hideElements(["play", "about", "credits"]);
+                    hideElements(["play", "credits"]);
                     showElements(["back_arrow_playButton"]);
-                });
-            </script>
-
-        <div class="aboutbutton"><img src="About_Idle.png" alt="About Button" id = "about"></div> 
-            <script>
-                const about = document.getElementById('about');
-                about.addEventListener('mouseover', () => { 
-                    about.src = "About_Hover.png"; // Change image on hover
-                });
-                about.addEventListener('mouseout', () => {
-                    about.src = "About_Idle.png"; // Revert back when hover ends
-                });
-                about.addEventListener('click', () => { //go to the about screen
-                    aboutButtonClicked = true;
-                    hideElements(["play", "about", "credits"]);
-                    showElements(["back_arrow_aboutButton"]);
                 });
             </script>
         
@@ -127,7 +91,7 @@
                 });
                 credits.addEventListener('click', () => { //go to the credits screen
                     creditsButtonClicked = true;
-                    hideElements(["play", "about", "credits"]);
+                    hideElements(["play", "credits"]);
                     showElements(["back_arrow_creditsButton"]);
                     showElements(["creditsDisplay"]);
                 });
@@ -171,8 +135,9 @@
     </div>
 
 </body>
-</html> -->
+</html>
 
+<!--
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -219,3 +184,4 @@
     </button>
 </body>
 </html>
+-->

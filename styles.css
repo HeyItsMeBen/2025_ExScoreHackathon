@@ -53,7 +53,7 @@ img {
 
 .container {
     position: relative;  /* Ensures container stays above background */
-    z-index: auto;
+    z-index: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -119,9 +119,9 @@ img {
     margin-top: -50px; /* Adjust the value to move it up more or less */
 }
 
-.backArrowPlay {
+.backArrow {
     position: absolute;
-    z-index: 10;
+    z-index: 11;
     width: 400px;
     height: 200px;
     display: flex;
@@ -130,37 +130,7 @@ img {
     border: none;
     cursor: default;
     border-radius: 5px;
-    transform: translate(-300px, -275px); /* X, Y -625px */
-    margin-top: -50px; /* Adjust the value to move it up more or less */
-} 
-
-.backArrowAbout {
-    position: absolute;
-    z-index: 10;
-    width: 400px;
-    height: 200px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    border: none;
-    cursor: default;
-    border-radius: 5px;
-    transform: translate(-300px, -275px); /* X, Y */
-    margin-top: -50px; /* Adjust the value to move it up more or less */
-} 
-
-.backArrowCredits {
-    position: absolute;
-    z-index: 10;
-    width: 400px;
-    height: 200px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    border: none;
-    cursor: default;
-    border-radius: 5px;
-    transform: translate(-300px, -275px); /* X, Y */
+    transform: translate(-625px, -275px); /* X, Y */
     margin-top: -50px; /* Adjust the value to move it up more or less */
 } 
 
@@ -201,7 +171,7 @@ img {
     display: flex;
 }
 
-.credits {
+.info {
     position: absolute;
     width: 500px; /* Box width */
     padding: 20px; /* Space inside the box */
@@ -218,5 +188,41 @@ img {
     margin: 0 15px;
     font-size: 24px;
     transform: translateY(-50px);
+    z-index: 10;
+} 
+
+.selectCharacterTitle {
+    position: absolute;
+    width: 500px; /* Box width */
+    padding: 10px; /* Space inside the box */
+    text-align: center; /* Center the text */
+    color: rgb(255, 255, 255);
+    font-size: 10px; /* Text size */
+    font-family: 'Press Start 2P', sans-serif;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    word-wrap: break-word;
+    margin: 0 15px;
+    font-size: 24px;
+    transform: translate(350px, -225px);
+    z-index: 10;
+} 
+
+.selectMapTitle {
+    position: absolute;
+    color: rgb(255, 255, 255);
+    width: 500px; /* Box width */
+    padding: 10px; /* Space inside the box */
+    text-align: center; /* Center the text */
+    font-size: 10px; /* Text size */
+    font-family: 'Press Start 2P', sans-serif;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    word-wrap: break-word;
+    margin: 0 15px;
+    font-size: 24px;
+    transform: translate(-350px, -225px);
     z-index: 10;
 } 
