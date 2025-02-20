@@ -16,7 +16,7 @@ img {
 
 .background {
     background-position: center 100%;  /* Center the image */
-    background-image: url('Background.png'); /* Path to your local image */
+    background-image: url('assests/NavBar/Background.png'); /* Path to your local image */
     will-change: transform;
     background-size: 2300px 800px; 
     height: 100%;  /* Ensure the body takes up the full viewport height */
