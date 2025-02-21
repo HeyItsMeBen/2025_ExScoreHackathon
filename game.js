@@ -1,11 +1,11 @@
-import { resources } from "Resource.js";
-import { Sprite } from "Sprite.js";
-import { Vector2 } from "Vector2.js";
-import { GameLoop } from "GameLoop.js";
-import { DOWN, Input, LEFT, RIGHT, UP } from "Input.js";
-import { WALK_DOWN, WALK_LEFT, WALK_RIGHT, WALK_UP,STAND_DOWN, STAND_LEFT, STAND_RIGHT, STAND_UP} from "playerAnimations.js";
-import { FrameIndexPattern } from "FrameIndexPattern.js";
-import { Animations } from "Animations.js";
+import { resources } from "./Resource.js";
+import { Sprite } from "./Sprite.js";
+import { Vector2 } from "./Vector2.js";
+import { GameLoop } from "./GameLoop.js";
+import { DOWN, Input, LEFT, RIGHT, UP } from "./Input.js";
+import { WALK_DOWN, WALK_LEFT, WALK_RIGHT, WALK_UP,STAND_DOWN, STAND_LEFT, STAND_RIGHT, STAND_UP} from "./playerAnimations.js";
+import { FrameIndexPattern } from "./FrameIndexPattern.js";
+import { Animations } from "./Animations.js";
 
 let charFacing = DOWN;
 const canvas = document.querySelector("#game-canvas");
