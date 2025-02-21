@@ -32,9 +32,14 @@ img {
 
 /* Menu list */
 .logo {
+    position: absolute;
     list-style: none;
     display: flex;
     justify-content: center;
+    width: 12%;
+    height: auto;
+    z-index: 10px;
+    transform: translateY(-200px);
 }
 
 .container {
@@ -64,19 +69,20 @@ img {
 .playbutton[data-values = "values"] {
     width: 300px;
     height: 150px;
-    transform: translateY(0px);
+    transform: translateY(50px);
     animation: idleAnimation 3s infinite alternate;
 }
 .aboutbutton[data-position = "position"] {
-    transform: translateY(125px);
+    transform: translateY(175px);
 }
 .creditsbutton[data-position = "position"] {
-    transform: translateY(225px);
+    transform: translateY(275px);
 }
 .backArrow[data-size = "values"]{
     width: 400px;
     height: 200px;
-    transform: translate(-625px, -275px); /* X, Y */
+    transform: translate(-625px, -250px); /* X, Y */
+    display: flex;
 }
 
 .hide {
@@ -116,7 +122,7 @@ img {
     word-wrap: break-word;
     margin: 0 15px;
     font-size: 24px;
-    transform: translateY(-50px);
+    transform: translateY(0px);
     z-index: 10;
 } 
 
@@ -135,33 +141,52 @@ img {
     margin: 0 15px;
     font-size: 24px;
     z-index: 10;
+    transform: translate(-350px, -225px);
 } 
 .columnTitle[data-position = "Translate 350px, -225px"]{
     transform: translate(350px, -225px);
-}
-.columnTitle[data-position = "Translate -350px, -225px"]{
-    transform: translate(-350px, -225px);
 }
 .location[data-font = "location-font"]{
     font-size: 20px;
 }
 .location[data-place = "France"] {
-    transform: translate(-350px, -100px);
+    transform: translate(-300px, -100px);
 }
 .location[data-place = "TBD1"] {
-    transform: translate(-350px, 0px);
+    transform: translate(-300px, 25px);
 }
 .location[data-place = "TBD2"] {
-    transform: translate(-350px, 100px);
+    transform: translate(-300px, 150px);
 }
 .location[data-place = "TBD3"] {
-    transform: translate(-350px, 200px);
+    transform: translate(-300px, 275px);
 }
 
 .shrink-image {
     width: 25%; /* Shrinks the image to 50% of its original width */
     height: auto; /* Maintains the aspect ratio */
 }
+
+.icon {
+    position: absolute;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    width: 5%;
+    height: auto;
+    z-index: 10px;
+    transform: translate(-500px,-100px);
+} 
+.icon[data-frame = "2"] {
+    transform: translate(-500px, 25px);
+}
+.icon[data-frame = "3"] {
+    transform: translate(-500px, 150px);
+}
+.icon[data-frame = "4"] {
+    transform: translate(-500px, 275px);
+}
+
 /*Keyframes*/
 
 @keyframes scrollBackground {
@@ -175,13 +200,13 @@ img {
 
 @keyframes idleAnimation {
     0% {
-        transform: translateY(0); /* Starting position */
+        transform: translateY(50); /* Starting position */
     }
     50% {
-        transform: translateY(-15px); /* Moves up */
+        transform: translateY(35px); /* Moves up */
     }
     100% {
-        transform: translateY(0); /* Moves back down */
+        transform: translateY(50); /* Moves back down */
     }
 }
 
