@@ -2,16 +2,20 @@ import { sprite_gender } from './userData.js';
 
 class Resources {
   constructor() {
-    this.toLoad = {
-      path: "assests/Locations/path.png",
-      paris_slums: "assests/Locations/paris_slums.png",
-    }
     if (sprite_gender == "female") {
-        this.toLoad.append(sprite, "assests/female_character.png")
-      console.log("sprite_gender is female")
+      this.toLoad = {
+        path: "assests/Locations/path.png",
+        male_sprite: "assests/female_character.png"
+      }
+      console.log("It's a girl!")
     } else {
-      this.toLoad.append(sprite, "assests/male_character.png")
+      this.toLoad = {
+        path: "assests/Locations/path.png",
+        male_sprite: "assests/male_character.png"
+      }
+      console.log("It's a boy!")
     }
+    
     this.images = {};
 
     Object.keys(this.toLoad).forEach((key) => {
