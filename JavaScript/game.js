@@ -9,7 +9,7 @@ import { Animations } from "./Animations.js";
 
 
 // game.js
-console.log("game.js is properly connected!");
+console.log("game.js is connected!");
 
 
 let charFacing = DOWN;
@@ -18,34 +18,43 @@ const ctx = canvas.getContext("2d");
 const input = new Input();
 const speed = 7;
 const update = () =>{
-    male_sprite.step(1000/60);
+    sprite.step(1000/60);
     if (!input.direction){
-        if (charFacing == UP){male_sprite.animations.play("standUp");}
-        if (charFacing == DOWN){male_sprite.animations.play("standDown");}
-        if (charFacing == LEFT){male_sprite.animations.play("standLeft");}
-        if (charFacing == RIGHT){male_sprite.animations.play("standRight");}
+        if (charFacing == UP){sprite.animations.play("standUp");}
+        if (charFacing == DOWN){sprite.animations.play("standDown");}
+        if (charFacing == LEFT){sprite.animations.play("standLeft");}
+        if (charFacing == RIGHT){sprite.animations.play("standRight");}
         return;
     }
     if (input.direction === UP) {
-        spritePos.y -= speed;
-        male_sprite.animations.play("walkUp");
+        console.log(spritePos.y);
+        if (spritePos.y >= 300) {
+            spritePos.y -= speed;
+        }
+        sprite.animations.play("walkUp");
     }
     if (input.direction === DOWN) {
-        spritePos.y += speed;
-        male_sprite.animations.play("walkDown");
+        if (spritePos.y <= 720){
+            spritePos.y += speed;
+        }
+        sprite.animations.play("walkDown");
     }
     if (input.direction === LEFT) {
-        spritePos.x -= speed;
-        male_sprite.animations.play("walkLeft");
+        if (spritePos.x >= -100){
+            spritePos.x -= speed;
+        }
+        sprite.animations.play("walkLeft");
     }
     if (input.direction === RIGHT) {
-        spritePos.x += speed;
-        male_sprite.animations.play("walkRight");
+        if (spritePos.x <= 1180){
+            spritePos.x += speed;
+        }
+        sprite.animations.play("walkRight");
     }
     charFacing = input.direction ?? charFacing;
 }
-const male_sprite = new Sprite({
-    resource: resources.images.male_sprite,
+const sprite = new Sprite({
+    resource: resources.images.female_sprite,
     frameSize: new Vector2(250,250),
     hFrames: 4,
     vFrames:4,
@@ -61,15 +70,15 @@ const male_sprite = new Sprite({
         standLeft: new FrameIndexPattern(STAND_LEFT),
     })
 });
-const spritePos = new Vector2(60, 60);
+const spritePos = new Vector2(60, 450);
 const draw = () => {
-    const path = resources.images.path;
-    if (path.isLoaded) {
-        ctx.drawImage(path.image, 0, 0, 1280,720);
+    const bg = resources.images.paris_slums;
+    if (bg.isLoaded) {
+        ctx.drawImage(bg.image, 0, 0, 1280,720);
     }
     ctx.imageSmoothingEnabled = false;
 
-    male_sprite.drawImage(ctx, spritePos.x, spritePos.y);
+    sprite.drawImage(ctx, spritePos.x, spritePos.y);
     
 }
 
