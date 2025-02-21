@@ -132,14 +132,11 @@ start.addEventListener('mouseover', () => {
 start.addEventListener('mouseout', () => {
     start.style.color = "white";
 });
-start.addEventListener('click', () => {
-    if (mapSelected == true && characterSelected == true) {
-        //Link to game
-    }
-});
-start.addEventListener('click', () => {
-    if (mapSelected == true && characterSelected == true) {
-        //Link to game
+start.addEventListener("click", () => {
+    if (maleCharacterSelected) {
+        localStorage.setItem('gender', 'male');
+    } else if (femaleCharacterSelected) {
+        localStorage.setItem('gender', 'female');
     }
 });
 
@@ -189,6 +186,8 @@ document.addEventListener("click", function () {
 ["back", "creditsDisplay", "aboutDisplay", "characterTitle", "locationTitle", "locationFrance", "TBD1", "TBD2", "TBD3", "icon1", "icon2", "icon3", "icon4", "start", "male", "female"].forEach(id => {
     fastHideElements([id])
 });
+
+//export let character_female = femaleCharacterSelected;
 
 
 
