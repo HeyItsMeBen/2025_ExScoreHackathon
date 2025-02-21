@@ -9,8 +9,9 @@ import { Animations } from "./Animations.js";
 
 
 // game.js
-console.log("game.js is connected!");
+console.log("game.js file is connected!");
 
+//Note: Can avoid CORS restrictions by running --disable-web-security --user-data-dir="C:\chrome_dev". Not recommended if you have a local server instead
 
 let charFacing = DOWN;
 const canvas = document.querySelector("#game-canvas");
