@@ -7,6 +7,11 @@ import { WALK_DOWN, WALK_LEFT, WALK_RIGHT, WALK_UP,STAND_DOWN, STAND_LEFT, STAND
 import { FrameIndexPattern } from "./FrameIndexPattern.js";
 import { Animations } from "./Animations.js";
 
+
+// game.js
+console.log("game.js is properly connected!");
+
+
 let charFacing = DOWN;
 const canvas = document.querySelector("#game-canvas");
 const ctx = canvas.getContext("2d");
