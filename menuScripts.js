@@ -1,6 +1,9 @@
 let playClicked = false;
 let aboutClicked = false;
 let creditsClicked = false;
+let mapSelected = false;
+let mapSelectedFrance = false;
+let characterSelected = true;
 
 const logo = document.getElementById('logo');
 const play = document.getElementById('play');
@@ -8,6 +11,7 @@ const about = document.getElementById('about');
 const credits = document.getElementById('credits');
 const backArrowPlay = document.getElementById('back');
 const mapTitle1 = document.getElementById("locationFrance");
+const start = document.getElementById('start')
 
 function hideElements(ids) {
     ids.forEach(id => {
@@ -45,11 +49,15 @@ function fastShowElements(ids) {
     });
 }
 
+["back", "creditsDisplay", "aboutDisplay", "characterTitle", "locationTitle", "locationFrance", "TBD1", "TBD2", "TBD3", "icon1", "icon2", "icon3", "icon4", "start"].forEach(id => {
+    fastHideElements([id])
+});
+
 backArrowPlay.addEventListener('click', () => { //go to the play screen
     showElements(["play", "about", "credits", "logo"]);
     fastHideElements(["back"]);
     if (playClicked == true) {
-        hideElements(["characterTitle", "locationTitle", "locationFrance", "TBD1", "TBD2", "TBD3", "icon1", "icon2", "icon3", "icon4"]);
+        hideElements(["characterTitle", "locationTitle", "locationFrance", "TBD1", "TBD2", "TBD3", "icon1", "icon2", "icon3", "icon4", "start"]);
     } else if (aboutClicked == true) {
         hideElements(["aboutDisplay"]);
     } else if (creditsClicked == true) {
@@ -103,13 +111,36 @@ mapTitle1.addEventListener('mouseover', () => {
     mapTitle1.style.color = "yellow";
 });
 mapTitle1.addEventListener('mouseout', () => {
-    mapTitle1.style.color = "white";
+    if (mapSelectedFrance == false) {
+        mapTitle1.style.color = "white";
+    } else {
+        mapTitle1.style.color = "yellow";
+    }
+});
+mapTitle1.addEventListener('click', () => {
+    mapTitle1.style.color = "yellow";
+    mapSelectedFrance = true;
+    mapSelected = true;
 });
 
-
-["back", "creditsDisplay", "aboutDisplay", "characterTitle", "locationTitle", "locationFrance", "TBD1", "TBD2", "TBD3", "icon1", "icon2", "icon3", "icon4"].forEach(id => {
-    fastHideElements([id])
+start.addEventListener('mouseover', () => {
+    start.style.color = "yellow";
 });
+start.addEventListener('mouseout', () => {
+    start.style.color = "white";
+});
+start.addEventListener('click', () => {
+    if (mapSelected == true && characterSelected == true) {
+        //Link to game
+    }
+});
+
+document.addEventListener("click", function () {
+    if (playClicked == true && mapSelected == true && characterSelected == true) {
+        fastShowElements(["start"]);
+    }
+});
+
 
 
 

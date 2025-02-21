@@ -141,25 +141,25 @@ img {
     margin: 0 15px;
     font-size: 24px;
     z-index: 10;
-    transform: translate(-350px, -225px);
+    transform: translate(-350px, -275px);
 } 
 .columnTitle[data-position = "Translate 350px, -225px"]{
-    transform: translate(350px, -225px);
+    transform: translate(350px, -275px);
 }
 .location[data-font = "location-font"]{
     font-size: 20px;
 }
 .location[data-place = "France"] {
-    transform: translate(-300px, -100px);
+    transform: translate(-300px, -150px);
 }
 .location[data-place = "TBD1"] {
-    transform: translate(-300px, 25px);
+    transform: translate(-300px, -25px);
 }
 .location[data-place = "TBD2"] {
-    transform: translate(-300px, 150px);
+    transform: translate(-300px, 100px);
 }
 .location[data-place = "TBD3"] {
-    transform: translate(-300px, 275px);
+    transform: translate(-300px, 225px);
 }
 
 .shrink-image {
@@ -175,16 +175,34 @@ img {
     width: 5%;
     height: auto;
     z-index: 10px;
-    transform: translate(-500px,-100px);
+    transform: translate(-500px,-150px);
 } 
 .icon[data-frame = "2"] {
-    transform: translate(-500px, 25px);
+    transform: translate(-500px, -25px);
 }
 .icon[data-frame = "3"] {
-    transform: translate(-500px, 150px);
+    transform: translate(-500px, 100px);
 }
 .icon[data-frame = "4"] {
-    transform: translate(-500px, 275px);
+    transform: translate(-500px, 225px);
+}
+
+.start_button {
+    position: absolute;
+    width: 800px; /* Box width */
+    padding: 20px; /* Space inside the box */
+    text-align: center; /* Center the text */
+    color: rgb(255, 255, 255);
+    font-size: 50px; /* Text size */
+    font-family: 'Press Start 2P', sans-serif;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    word-wrap: break-word;
+    margin: 0 15px;
+    font-size: 24px;
+    z-index: 11;
+    transform: translateY(275px);
 }
 
 /*Keyframes*/
