@@ -3,7 +3,7 @@ let aboutClicked = false;
 let creditsClicked = false;
 let mapSelected = false;
 let mapSelectedFrance = false;
-let characterSelected = true;
+let characterSelected = false;
 
 const logo = document.getElementById('logo');
 const play = document.getElementById('play');
@@ -11,7 +11,9 @@ const about = document.getElementById('about');
 const credits = document.getElementById('credits');
 const backArrowPlay = document.getElementById('back');
 const mapTitle1 = document.getElementById("locationFrance");
-const start = document.getElementById('start')
+const start = document.getElementById('start');
+const male_character = document.getElementById('male');
+const female_character = document.getElementById('female');
 
 function hideElements(ids) {
     ids.forEach(id => {
@@ -49,15 +51,14 @@ function fastShowElements(ids) {
     });
 }
 
-["back", "creditsDisplay", "aboutDisplay", "characterTitle", "locationTitle", "locationFrance", "TBD1", "TBD2", "TBD3", "icon1", "icon2", "icon3", "icon4", "start"].forEach(id => {
-    fastHideElements([id])
-});
-
 backArrowPlay.addEventListener('click', () => { //go to the play screen
     showElements(["play", "about", "credits", "logo"]);
     fastHideElements(["back"]);
     if (playClicked == true) {
-        hideElements(["characterTitle", "locationTitle", "locationFrance", "TBD1", "TBD2", "TBD3", "icon1", "icon2", "icon3", "icon4", "start"]);
+        hideElements(["characterTitle", "locationTitle", "locationFrance", "TBD1", "TBD2", "TBD3", "icon1", "icon2", "icon3", "icon4", "male", "female"]);
+        if (mapSelected == true && characterSelected == true) {
+            hideElements(["start"]);
+        }
     } else if (aboutClicked == true) {
         hideElements(["aboutDisplay"]);
     } else if (creditsClicked == true) {
@@ -78,7 +79,7 @@ play.addEventListener('click', () => { //go to the play screen
     playClicked = true;
     hideElements(["play", "about", "credits", "logo"]);
     fastShowElements(["back"]);
-    showElements(["characterTitle", "locationTitle", "locationFrance", "TBD1", "TBD2", "TBD3", "icon1", "icon2", "icon3", "icon4"]);
+    showElements(["characterTitle", "locationTitle", "locationFrance", "TBD1", "TBD2", "TBD3", "icon1", "icon2", "icon3", "icon4", "male", "female"]);
 });
 
 about.addEventListener('mouseover', () => { 
@@ -135,11 +136,19 @@ start.addEventListener('click', () => {
     }
 });
 
+
 document.addEventListener("click", function () {
     if (playClicked == true && mapSelected == true && characterSelected == true) {
         fastShowElements(["start"]);
     }
 });
+
+["back", "creditsDisplay", "aboutDisplay", "characterTitle", "locationTitle", "locationFrance", "TBD1", "TBD2", "TBD3", "icon1", "icon2", "icon3", "icon4", "start", "male", "female"].forEach(id => {
+    fastHideElements([id])
+});
+
+
+
 
 
 

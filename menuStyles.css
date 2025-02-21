@@ -93,7 +93,6 @@ img {
 .fastHide {
     opacity: 0;
     display: none;
-
 } 
 
 .show {
@@ -185,6 +184,22 @@ img {
 }
 .icon[data-frame = "4"] {
     transform: translate(-500px, 225px);
+}
+
+.characters {
+    position: absolute;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    width: 10%;
+    height: auto;
+    z-index: 10px;
+} 
+.characters[data-character = "female"] {
+    transform: translate(200px, -50px);
+}
+.characters[data-character = "male"] {
+    transform: translate(500px, -50px);
 }
 
 .start_button {
