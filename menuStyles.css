@@ -76,7 +76,7 @@ img {
     transform: translateY(175px);
 }
 .creditsbutton[data-position = "position"] {
-    transform: translateY(275px);
+    transform: translateY(250px);
 }
 .backArrow[data-size = "values"]{
     width: 400px;
@@ -173,7 +173,7 @@ img {
     justify-content: center;
     width: 5%;
     height: auto;
-    z-index: 10px;
+    z-index: 10;
     transform: translate(-500px,-150px);
 } 
 .icon[data-frame = "2"] {
@@ -193,7 +193,7 @@ img {
     justify-content: center;
     width: 10%;
     height: auto;
-    z-index: 10px;
+    z-index: 22;
 } 
 .characters[data-character = "female"] {
     transform: translate(200px, -50px);

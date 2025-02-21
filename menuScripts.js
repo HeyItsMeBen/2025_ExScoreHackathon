@@ -4,6 +4,8 @@ let creditsClicked = false;
 let mapSelected = false;
 let mapSelectedFrance = false;
 let characterSelected = false;
+let maleCharacterSelected = false;
+let femaleCharacterSelected = false;
 
 const logo = document.getElementById('logo');
 const play = document.getElementById('play');
@@ -135,7 +137,48 @@ start.addEventListener('click', () => {
         //Link to game
     }
 });
+start.addEventListener('click', () => {
+    if (mapSelected == true && characterSelected == true) {
+        //Link to game
+    }
+});
 
+male_character.addEventListener('mouseover', () => {
+    male_character.src = "assests/NavBar/Character2_hover.png";
+});
+male_character.addEventListener('mouseout', () => {
+    if (maleCharacterSelected == true) {
+        male_character.src = "assests/NavBar/Character2_selected.png";
+    } else if (maleCharacterSelected == false) {
+        male_character.src = "assests/NavBar/Character2_idle.png";
+    }
+});
+male_character.addEventListener("click", () => {
+    characterSelected = true;
+    maleCharacterSelected = true;
+    femaleCharacterSelected = false;
+    male_character.src = "assests/NavBar/Character2_selected.png";
+    female_character.src = "assests/NavBar/Character1_idle.png";
+});
+
+female_character.addEventListener('mouseover', () => {
+    female_character.src = "assests/NavBar/Character1_hover.png";
+});
+female_character.addEventListener('mouseout', () => {
+    female_character.src = "assests/NavBar/Character1_idle.png";
+    if (femaleCharacterSelected == true) {
+        female_character.src = "assests/NavBar/Character1_selected.png";
+    } else if (maleCharacterSelected == false) {
+        female_character.src = "assests/NavBar/Character1_idle.png";
+    }
+});
+female_character.addEventListener("click", () => {
+    characterSelected = true;
+    maleCharacterSelected = false;
+    femaleCharacterSelected = true;
+    female_character.src = "assests/NavBar/Character1_selected.png";
+    male_character.src = "assests/NavBar/Character2_idle.png";
+});
 
 document.addEventListener("click", function () {
     if (playClicked == true && mapSelected == true && characterSelected == true) {
