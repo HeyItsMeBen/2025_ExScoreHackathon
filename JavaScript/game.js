@@ -33,6 +33,7 @@ const update = () => {
             if (input.space === true) {
                 interacted = true;
                 console.log('hihihihi')
+                ctx.drawImage(resources.images.speechbubble1.image, spritePos.x + 50, spritePos.y + 50, 600,40);
             }
         }
         else{
