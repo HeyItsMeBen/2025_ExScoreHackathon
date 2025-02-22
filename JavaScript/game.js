@@ -55,7 +55,7 @@ const update = () =>{
     charFacing = input.direction ?? charFacing;
 }
 const sprite = new Sprite({
-    resource: resources.images.female_sprite,
+    resource: resources.images.sprite,
     frameSize: new Vector2(250,250),
     hFrames: 4,
     vFrames:4,

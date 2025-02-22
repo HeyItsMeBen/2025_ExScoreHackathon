@@ -7,10 +7,10 @@ class Resources {
       paris_slums: "assests/Locations/paris_slums.png",
     }
     if (sprite_gender == "female") {
-        this.toLoad.append(sprite, "assests/female_character.png")
+      this.toLoad.sprite = "assests/female_character.png";
       console.log("sprite_gender is female")
     } else {
-      this.toLoad.append(sprite, "assests/male_character.png")
+      this.toLoad.sprite =  "assests/male_character.png";
     }
     this.images = {};
 
@@ -22,6 +22,7 @@ class Resources {
             isLoaded:false
         }
         img.onload = () => {
+          console.log(this.images[key].image + " is loaded");
             this.images[key].isLoaded = true;
         }
     })
