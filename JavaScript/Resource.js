@@ -7,6 +7,7 @@ class Resources {
       paris_slums: "assests/Locations/paris_slums.png",
       proletariat: "assests/proletariat.png",
       space_pop_up: "assests/press_space_to_talk.png",
+      speechbubble1: "assests/SpeechBubble_Hey_What_Is_Happening.png",
     }
     
     if (sprite_gender == "female") {

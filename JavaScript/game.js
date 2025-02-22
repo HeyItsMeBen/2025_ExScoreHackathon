@@ -32,7 +32,8 @@ const update = () => {
             spacePopUp = true;
             if (input.space === true) {
                 interacted = true;
-                console.log('hihihihi')
+                console.log('SpeechBubble1!')
+                ctx.drawImage(resources.images.speechbubble1.image, spritePos.x + 50, spritePos.y + 50, 600,40);
             }
         }
         else{
@@ -69,6 +70,7 @@ const draw = () => {
     if (spacePopUp){
         ctx.drawImage(resources.images.space_pop_up.image, spritePos.x - 100, spritePos.y + 50, 300,20);
     }
+
     scenes[curLevel].characters.forEach(character => {
         character.sprite.drawImage(ctx, character.position.x, character.position.y);
         character.sprite.step(1000/60);
