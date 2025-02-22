@@ -134,9 +134,9 @@ start.addEventListener('mouseout', () => {
 });
 start.addEventListener("click", () => {
     if (maleCharacterSelected) {
-        localStorage.setItem('gender', 'male');
+        sessionStorage.setItem('gender', 'male');
     } else if (femaleCharacterSelected) {
-        localStorage.setItem('gender', 'female');
+        sessionStorage.setItem('gender', 'female');
     }
 });
 
