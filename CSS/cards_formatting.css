@@ -94,7 +94,7 @@ body {
   
   /* Back of the card (this will be flipped) */
   .card-back {
-    transform: rotateY(180deg); /* Initially rotates the back 180° so it’s hidden */
+    transform: rotateY(-180deg); /* Initially rotates the back 180° so it’s hidden */
   }
   
   /* Front image style */
@@ -106,7 +106,7 @@ body {
     }
   
   .card.flipped .card-inner {
-    transform: rotateY(180deg);
+    transform: rotateY(-180deg);
     }
 
 .scroll-arrow {

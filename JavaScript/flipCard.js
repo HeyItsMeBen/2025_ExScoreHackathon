@@ -1,12 +1,12 @@
-let creationNationalAssemblyStatus = true;// JSON.parse(sessionStorage.getItem('creation_national_assembly'));
-let estatesGeneralStatus = true;// JSON.parse(sessionStorage.getItem('estates_general'));
-let frenchEnvelopmentStatus = true;// JSON.parse(sessionStorage.getItem('french_envelopment'));
-let stormBastilleStatus = true;// JSON.parse(sessionStorage.getItem('storm_bastille'));
-let tennisCourtOathStatus = true;// JSON.parse(sessionStorage.getItem('tennis_court_oath'));
-let firstSecondEstateStatus = true;// JSON.parse(sessionStorage.getItem('first_second_estate'));
-let kingLouisStatus = true;// JSON.parse(sessionStorage.getItem('King_Louis'));
-let nationalAssemblyStatus = true;// JSON.parse(sessionStorage.getItem('National_Assembly'));
-let thirdEstateStatus = true; //JSON.parse(sessionStorage.getItem('Third_Estate'));
+let creationNationalAssemblyStatus = JSON.parse(sessionStorage.getItem('creation_national_assembly'));
+let estatesGeneralStatus = JSON.parse(sessionStorage.getItem('estates_general'));
+let frenchEnvelopmentStatus = JSON.parse(sessionStorage.getItem('french_envelopment'));
+let stormBastilleStatus = JSON.parse(sessionStorage.getItem('storm_bastille'));
+let tennisCourtOathStatus = JSON.parse(sessionStorage.getItem('tennis_court_oath'));
+let firstSecondEstateStatus = JSON.parse(sessionStorage.getItem('first_second_estate'));
+let kingLouisStatus = JSON.parse(sessionStorage.getItem('King_Louis'));
+let nationalAssemblyStatus = JSON.parse(sessionStorage.getItem('National_Assembly'));
+let thirdEstateStatus = JSON.parse(sessionStorage.getItem('Third_Estate'));
 
 let creationNationalAssemblyFront = document.getElementById("front1");
 let creationNationalAssemblyBack = document.getElementById("back1");
@@ -18,22 +18,22 @@ let frenchEnvelopmentFront = document.getElementById("front3");
 let frenchEnvelopmentBack = document.getElementById("back3");
 
 let stormBastilleFront = document.getElementById("front4");
-let stormBastilleBack = document.getElementById("front4");
+let stormBastilleBack = document.getElementById("back4");
 
 let tennisCourtOathFront = document.getElementById("front5");
-let tennisCourtOathBack = document.getElementById("front5");
+let tennisCourtOathBack = document.getElementById("back5");
 
 let firstSecondEstateFront = document.getElementById("front6");
 let firstSecondEstateBack = document.getElementById("back6");
 
 let kingLouisFront = document.getElementById("front7");
-let kingLouisBack = document.getElementById("front7");
+let kingLouisBack = document.getElementById("back7");
 
 let nationalAssemblyFront = document.getElementById("front8");
 let nationalAssemblyBack = document.getElementById("back8");
 
 let thirdEstateFront = document.getElementById("front9");
-let thirdEstateBack = document.getElementById("front9");
+let thirdEstateBack = document.getElementById("back9");
 
 document.querySelectorAll('.card').forEach(card => {
     card.addEventListener('click', () => {
