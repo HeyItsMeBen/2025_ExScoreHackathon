@@ -23,7 +23,7 @@ const speed = 7;
 const targetX = 60;
 const targetY = 450;
 var spacePopUp = false;
-
+var speechBubble = false;
 var interacted = false;
 const update = () => {
     moveSprite(input, sprite);
@@ -32,8 +32,8 @@ const update = () => {
             spacePopUp = true;
             if (input.space === true) {
                 interacted = true;
-                console.log('SpeechBubble1!')
-                ctx.drawImage(resources.images.speechbubble1.image, spritePos.x + 50, spritePos.y + 50, 600,40);
+                console.log('SpeechBubble1!');
+                speechBubble = true;
             }
         }
         else{
@@ -69,6 +69,9 @@ const draw = () => {
     
     if (spacePopUp){
         ctx.drawImage(resources.images.space_pop_up.image, spritePos.x - 100, spritePos.y + 50, 300,20);
+    }
+    if (speechBubble){
+        ctx.drawImage(resources.images.speechbubble1.image, spritePos.x + 50, spritePos.y + 50, 600,40);
     }
 
     scenes[curLevel].characters.forEach(character => {
