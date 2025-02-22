@@ -20,8 +20,8 @@ const canvas = document.querySelector("#game-canvas");
 const ctx = canvas.getContext("2d");
 const input = new Input();
 const speed = 7;
-const targetX = 500;
-const targetY = 500;
+const targetX = 60;
+const targetY = 450;
 
 var interacted = false;
 const update = () => {
