@@ -7,8 +7,6 @@ import { WALK_DOWN, WALK_LEFT, WALK_RIGHT, WALK_UP,STAND_DOWN, STAND_LEFT, STAND
 import { FrameIndexPattern } from "./FrameIndexPattern.js";
 import { Animations } from "./Animations.js";
 import {scenes} from "./Levels.js";
-import {press_space_to_talk} from "./Resource.js";
-
 
 // game.js
 console.log("game.js file is connected!");
