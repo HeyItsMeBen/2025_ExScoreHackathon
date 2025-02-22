@@ -67,7 +67,7 @@ const draw = () => {
     ctx.imageSmoothingEnabled = false;
     
     if (spacePopUp){
-        ctx.drawImage(resources.images.space_pop_up.image, spritePos.x + 50, spritePos.y + 50, 600,40);
+        ctx.drawImage(resources.images.space_pop_up.image, spritePos.x - 100, spritePos.y + 50, 300,20);
     }
     scenes[curLevel].characters.forEach(character => {
         character.sprite.drawImage(ctx, character.position.x, character.position.y);
