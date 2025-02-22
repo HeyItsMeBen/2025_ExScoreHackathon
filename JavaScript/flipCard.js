@@ -54,48 +54,48 @@ document.addEventListener("click", function(event) {
 });
 
 if (creationNationalAssemblyStatus) {
-    creationNationalAssemblyFront.src = "../assests/Cards/Events/Frontside/Creation_National_Assembly.png";  // replace with the actual image path
-    creationNationalAssemblyBack.src = "../assests/Cards/Events/Backside/Creation_National_Assembly.png";  // replace with the actual image path
+    creationNationalAssemblyFront.src = "https://heyitsmeben.github.io/2025_ExScoreHackathon/assests/Cards/Events/Frontside/Creation_National_Assembly.png";  // replace with the actual image path
+    creationNationalAssemblyBack.src = "https://heyitsmeben.github.io/2025_ExScoreHackathon/assests/Cards/Events/Backside/Creation_National_Assembly.png";  // replace with the actual image path
 }
 
 if (estatesGeneralStatus) {
-    estatesGeneralFront.src = "../assests/Cards/Events/Frontside/Estates_General.png";  // replace with the actual image path
-    estatesGeneralBack.src = "../assests/Cards/Events/Backside/Estates_General.png";  // replace with the actual image path
+    estatesGeneralFront.src = "https://heyitsmeben.github.io/2025_ExScoreHackathon/assests/Cards/Events/Frontside/Estates_General.png";  // replace with the actual image path
+    estatesGeneralBack.src = "https://heyitsmeben.github.io/2025_ExScoreHackathon/assests/Cards/Events/Backside/Estates_General.png";  // replace with the actual image path
 }
 
 if (frenchEnvelopmentStatus) {
-    frenchEnvelopmentFront.src = "../assests/Cards/Events/Frontside/French_Envelopment.png";  // replace with the actual image path
-    frenchEnvelopmentBack.src = "../assests/Cards/Events/Backside/French_Envelopment.png";  // replace with the actual image path
+    frenchEnvelopmentFront.src = "https://heyitsmeben.github.io/2025_ExScoreHackathon/assests/Cards/Events/Frontside/French_Envelopment.png";  // replace with the actual image path
+    frenchEnvelopmentBack.src = "https://heyitsmeben.github.io/2025_ExScoreHackathon/assests/Cards/Events/Backside/French_Envelopment.png";  // replace with the actual image path
 }
 
 if (stormBastilleStatus) {
-    stormBastilleFront.src = "../assests/Cards/Events/Frontside/Storm_Bastille.png"; // replace with the actual image path
-    stormBastilleBack.src = "../assests/Cards/Events/Backside/Storm_Bastille.png";  // replace with the actual image path
+    stormBastilleFront.src = "https://heyitsmeben.github.io/2025_ExScoreHackathon/assests/Cards/Events/Frontside/Storm_Bastille.png"; // replace with the actual image path
+    stormBastilleBack.src = "https://heyitsmeben.github.io/2025_ExScoreHackathon/assests/Cards/Events/Backside/Storm_Bastille.png";  // replace with the actual image path
 }
 
 if (tennisCourtOathStatus) {
-    tennisCourtOathFront.src = "../assests/Cards/Events/Frontside/Tennis_Court_Oath.png";  // replace with the actual image path
-    tennisCourtOathBack.src = "../assests/Cards/Events/Backside/Tennis_Court_Oath.png";  // replace with the actual image path
+    tennisCourtOathFront.src = "https://heyitsmeben.github.io/2025_ExScoreHackathon/assests/Cards/Events/Frontside/Tennis_Court_Oath.png";  // replace with the actual image path
+    tennisCourtOathBack.src = "https://heyitsmeben.github.io/2025_ExScoreHackathon/assests/Cards/Events/Backside/Tennis_Court_Oath.png";  // replace with the actual image path
 }
 
 if (firstSecondEstateStatus) {
-    firstSecondEstateFront.src = "../assests/Cards/People/Frontside/First_Second_Estate.png";  // replace with the actual image path
-    firstSecondEstateBack.src = "../assests/Cards/People/Backside/First_Second_Estate.png";;  // replace with the actual image path
+    firstSecondEstateFront.src = "https://heyitsmeben.github.io/2025_ExScoreHackathon/assests/Cards/People/Frontside/First_Second_Estate.png";  // replace with the actual image path
+    firstSecondEstateBack.src = "https://heyitsmeben.github.io/2025_ExScoreHackathon/assests/Cards/People/Backside/First_Second_Estate.png";;  // replace with the actual image path
 }
 
 if (kingLouisStatus) {
-    kingLouisFront.src = "../assests/Cards/People/Frontside/King_Louis.png";  // replace with the actual image path
-    kingLouisBack.src = "../assests/Cards/People/Backside/King_Louis.png";  // replace with the actual image path
+    kingLouisFront.src = "https://heyitsmeben.github.io/2025_ExScoreHackathon/assests/Cards/People/Frontside/King_Louis.png";  // replace with the actual image path
+    kingLouisBack.src = "https://heyitsmeben.github.io/2025_ExScoreHackathon/assests/Cards/People/Backside/King_Louis.png";  // replace with the actual image path
 }
 
 if (nationalAssemblyStatus) {
-    nationalAssemblyFront.src = "../assests/Cards/People/Frontside/National_Assembly.png";  // replace with the actual image path
-    nationalAssemblyBack.src =  "../assests/Cards/People/Backside/National_Assembly.png";   // replace with the actual image path
+    nationalAssemblyFront.src = "https://heyitsmeben.github.io/2025_ExScoreHackathon/assests/Cards/People/Frontside/National_Assembly.png";  // replace with the actual image path
+    nationalAssemblyBack.src =  "https://heyitsmeben.github.io/2025_ExScoreHackathon/assests/Cards/People/Backside/National_Assembly.png";   // replace with the actual image path
 }
 
 if (thirdEstateStatus) {
-    thirdEstateFront.src = "../assests/Cards/People/Frontside/Third_Estate.png";   // replace with the actual image path
-    thirdEstateBack.src = "../assests/Cards/People/Backside/Third_Estate.png";  // replace with the actual image path
+    thirdEstateFront.src = "https://heyitsmeben.github.io/2025_ExScoreHackathon/assests/Cards/People/Frontside/Third_Estate.png";   // replace with the actual image path
+    thirdEstateBack.src = "https://heyitsmeben.github.io/2025_ExScoreHackathon/assests/Cards/People/Backside/Third_Estate.png";  // replace with the actual image path
 }
 
 // window.addEventListener('beforeunload', () => {
