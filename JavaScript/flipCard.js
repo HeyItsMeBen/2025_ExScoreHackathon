@@ -1,26 +1,45 @@
-let creationNationalAssemblyStatus = JSON.parse(sessionStorage.getItem('creation_national_assembly'));
-let estatesGeneralStatus = JSON.parse(sessionStorage.getItem('estates_general'));
-let frenchEnvelopmentStatus = JSON.parse(sessionStorage.getItem('french_envelopment'));
-let stormBastilleStatus = JSON.parse(sessionStorage.getItem('storm_bastille'));
-let tennisCourtOathStatus = JSON.parse(sessionStorage.getItem('tennis_court_oath'));
-let firstSecondEstateStatus = JSON.parse(sessionStorage.getItem('first_second_estate'));
-let kingLouisStatus = JSON.parse(sessionStorage.getItem('King_Louis'));
-let nationalAssemblyStatus = JSON.parse(sessionStorage.getItem('National_Assembly'));
-let thirdEstateStatus = JSON.parse(sessionStorage.getItem('Third_Estate'));
+let creationNationalAssemblyStatus = true;// JSON.parse(sessionStorage.getItem('creation_national_assembly'));
+let estatesGeneralStatus = true;// JSON.parse(sessionStorage.getItem('estates_general'));
+let frenchEnvelopmentStatus = true;// JSON.parse(sessionStorage.getItem('french_envelopment'));
+let stormBastilleStatus = true;// JSON.parse(sessionStorage.getItem('storm_bastille'));
+let tennisCourtOathStatus = true;// JSON.parse(sessionStorage.getItem('tennis_court_oath'));
+let firstSecondEstateStatus = true;// JSON.parse(sessionStorage.getItem('first_second_estate'));
+let kingLouisStatus = true;// JSON.parse(sessionStorage.getItem('King_Louis'));
+let nationalAssemblyStatus = true;// JSON.parse(sessionStorage.getItem('National_Assembly'));
+let thirdEstateStatus = true; //JSON.parse(sessionStorage.getItem('Third_Estate'));
 
-let creationNationalAssembly = document.getElementById("creation_national_assembly");
-let estatesGeneral = document.getElementById("Estates_General");
-let frenchEnvelopment = document.getElementById("French_envelopment");
-let stormBastille = document.getElementById("storm_Bastille");
-let tennisCourtOath = document.getElementById("Tennis_Court_Oath");
-let firstSecondEstate = document.getElementById("first_second_estate");
-let kingLouis = document.getElementById("King_Louis");
-let nationalAssembly = document.getElementById("National_Assembly");
-let thirdEstate = document.getElementById("Third_Estate");
+let creationNationalAssemblyFront = document.getElementById("front1");
+let creationNationalAssemblyBack = document.getElementById("back1");
 
-function flipCard(card) {
-    card.querySelector(".card-inner").classList.toggle("flipped");
-}
+let estatesGeneralFront = document.getElementById("front2");
+let estatesGeneralBack = document.getElementById("back2");
+
+let frenchEnvelopmentFront = document.getElementById("front3");
+let frenchEnvelopmentBack = document.getElementById("back3");
+
+let stormBastilleFront = document.getElementById("front4");
+let stormBastilleBack = document.getElementById("front4");
+
+let tennisCourtOathFront = document.getElementById("front5");
+let tennisCourtOathBack = document.getElementById("front5");
+
+let firstSecondEstateFront = document.getElementById("front6");
+let firstSecondEstateBack = document.getElementById("back6");
+
+let kingLouisFront = document.getElementById("front7");
+let kingLouisBack = document.getElementById("front7");
+
+let nationalAssemblyFront = document.getElementById("front8");
+let nationalAssemblyBack = document.getElementById("back8");
+
+let thirdEstateFront = document.getElementById("front9");
+let thirdEstateBack = document.getElementById("front9");
+
+document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', () => {
+        card.classList.toggle('flipped');
+    });
+})
 
 document.addEventListener("click", function(event) {
     const card = document.querySelector(".card");
@@ -31,65 +50,49 @@ document.addEventListener("click", function(event) {
     }
 });
 
-// Get the container and buttons
-const cardContainer = document.querySelector('.card-container');
-const scrollLeftButton = document.getElementById('scroll-left');
-const scrollRightButton = document.getElementById('scroll-right');
-
-// Define scroll step (change this value to adjust the scroll distance)
-const scrollStep = 220; // Amount to scroll (width of a card + margin)
-
-// Scroll to the right (next card)
-scrollRightButton.addEventListener('click', () => {
-  cardContainer.scrollBy({
-    left: scrollStep, // Move right
-    behavior: 'smooth' // Smooth scroll
-  });
-});
-
-// Scroll to the left (previous card)
-scrollLeftButton.addEventListener('click', () => {
-  cardContainer.scrollBy({
-    left: -scrollStep, // Move left
-    behavior: 'smooth' // Smooth scroll
-  });
-});
-
-
 if (creationNationalAssemblyStatus) {
-    creationNationalAssembly.src = "../assests/Cards/Events";  // replace with the actual image path
+    creationNationalAssemblyFront.src = "../assests/Cards/Events/Frontside/Creation_National_Assembly.png";  // replace with the actual image path
+    creationNationalAssemblyBack.src = "../assests/Cards/Events/Backside/Creation_National_Assembly.png";  // replace with the actual image path
 }
 
 if (estatesGeneralStatus) {
-    estatesGeneral.src = "path/to/your/image2.png";  // replace with the actual image path
+    estatesGeneralFront.src = "../assests/Cards/Events/Frontside/Estates_General.png";  // replace with the actual image path
+    estatesGeneralBack.src = "../assests/Cards/Events/Backside/Estates_General.png";  // replace with the actual image path
 }
 
 if (frenchEnvelopmentStatus) {
-    frenchEnvelopment.src = "path/to/your/image3.png";  // replace with the actual image path
+    frenchEnvelopmentFront.src = "../assests/Cards/Events/Frontside/French_Envelopment.png";  // replace with the actual image path
+    frenchEnvelopmentBack.src = "../assests/Cards/Events/Backside/French_Envelopment.png";  // replace with the actual image path
 }
 
 if (stormBastilleStatus) {
-    stormBastille.src = "path/to/your/image4.png";  // replace with the actual image path
+    stormBastilleFront.src = "../assests/Cards/Events/Frontside/Storm_Bastille.png"; // replace with the actual image path
+    stormBastilleBack.src = "../assests/Cards/Events/Backside/Storm_Bastille.png";  // replace with the actual image path
 }
 
 if (tennisCourtOathStatus) {
-    tennisCourtOath.src = "path/to/your/image5.png";  // replace with the actual image path
+    tennisCourtOathFront.src = "../assests/Cards/Events/Frontside/Tennis_Court_Oath.png";  // replace with the actual image path
+    tennisCourtOathBack.src = "../assests/Cards/Events/Backside/Tennis_Court_Oath.png";  // replace with the actual image path
 }
 
 if (firstSecondEstateStatus) {
-    firstSecondEstate.src = "path/to/your/image6.png";  // replace with the actual image path
+    firstSecondEstateFront.src = "../assests/Cards/People/Frontside/First_Second_Estate.png";  // replace with the actual image path
+    firstSecondEstateBack.src = "../assests/Cards/People/Backside/First_Second_Estate.png";;  // replace with the actual image path
 }
 
 if (kingLouisStatus) {
-    kingLouis.src = "path/to/your/image7.png";  // replace with the actual image path
+    kingLouisFront.src = "../assests/Cards/People/Frontside/King_Louis.png";  // replace with the actual image path
+    kingLouisBack.src = "../assests/Cards/People/Backside/King_Louis.png";  // replace with the actual image path
 }
 
 if (nationalAssemblyStatus) {
-    nationalAssembly.src = "path/to/your/image8.png";  // replace with the actual image path
+    nationalAssemblyFront.src = "../assests/Cards/People/Frontside/National_Assembly.png";  // replace with the actual image path
+    nationalAssemblyBack.src =  "../assests/Cards/People/Backside/National_Assembly.png";   // replace with the actual image path
 }
 
 if (thirdEstateStatus) {
-    thirdEstate.src = "path/to/your/image9.png";  // replace with the actual image path
+    thirdEstateFront.src = "../assests/Cards/People/Frontside/Third_Estate.png";   // replace with the actual image path
+    thirdEstateBack.src = "../assests/Cards/People/Backside/Third_Estate.png";  // replace with the actual image path
 }
-//    <script src="flipCard.js"></script> 
+
 

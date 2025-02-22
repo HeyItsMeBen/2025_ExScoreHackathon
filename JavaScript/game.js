@@ -26,7 +26,7 @@ const update = () => {
     if (input.space === true) {
         scenes[curLevel].characters.forEach(character => {
             if (character.position.dist(spritePos) < 300 && !interacted) {
-                console.log("Interacted with character");
+                console.log("Interacted with character"); //replace with whatever the hell happens
                 interacted = true;
             }
         });
