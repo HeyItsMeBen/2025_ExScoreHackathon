@@ -20,6 +20,9 @@ const canvas = document.querySelector("#game-canvas");
 const ctx = canvas.getContext("2d");
 const input = new Input();
 const speed = 7;
+const targetX = 200;
+const targetY = 150;
+
 var interacted = false;
 const update = () => {
     moveSprite(input, sprite);
@@ -104,4 +107,12 @@ const moveSprite = (input, s) => {
         s.animations.play("walkRight");
     }
     charFacing = input.direction ?? charFacing;
+
+    if (spritePos.x === targetX && spritePos.y === targetY) {
+        popupImage.style.display = 'press_space_to_talk.png';  // Show the image
+        popupImage.style.left = (spritePos.x + 50) + 'px';  // Adjust image position
+        popupImage.style.top = (spritePos.y + 50) + 'px';
+      } else {
+        popupImage.style.display = 'none';  // Hide the image
+      }
 }
