@@ -2,6 +2,11 @@ import { sprite_gender } from './userData.js';
 
 class Resources {
   constructor() {
+    this.toLoad = {
+      path: "assests/Locations/path.png",
+      paris_slums: "assests/Locations/paris_slums.png",
+    }
+    
     if (sprite_gender == "female") {
       this.toLoad.sprite = "assests/female_character.png";
     } else {
