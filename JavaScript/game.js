@@ -7,6 +7,7 @@ import { WALK_DOWN, WALK_LEFT, WALK_RIGHT, WALK_UP,STAND_DOWN, STAND_LEFT, STAND
 import { FrameIndexPattern } from "./FrameIndexPattern.js";
 import { Animations } from "./Animations.js";
 import {scenes} from "./Levels.js";
+import {press_space_to_talk} from "./Resource.js";
 
 
 // game.js
@@ -31,7 +32,7 @@ const update = () => {
             if (character.position.dist(spritePos) < 300 && !interacted) {
                 console.log("Interacted with character"); //replace with whatever the hell happens
                 if (spritePos.x === targetX && spritePos.y === targetY) {
-                    popupImage.style.display = 'press_space_to_talk.png';  // Show the image
+                    popupImage.style.display = 'press_space_to_talk';  // Show the image
                     popupImage.style.left = (spritePos.x + 50) + 'px';  // Adjust image position
                     popupImage.style.top = (spritePos.y + 50) + 'px';
                   } else {

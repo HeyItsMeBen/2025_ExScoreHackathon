@@ -6,6 +6,7 @@ class Resources {
       path: "assests/Locations/path.png",
       paris_slums: "assests/Locations/paris_slums.png",
       proletariat: "assests/proletariat.png",
+      press_space_to_talk: "press_space_to_talk.png",
     }
     
     if (sprite_gender == "female") {
