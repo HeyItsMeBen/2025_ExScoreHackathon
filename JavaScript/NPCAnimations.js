@@ -1,13 +1,13 @@
 export const STAND = {
-      duration: 200,
+      duration: 600,
       frames: [
         {
           time: 0,
-          frame: rootFrame
+          frame: 0
         },
         {
-          time: 100,
-          frame: rootFrame+1
+          time: 300,
+          frame: 1
         },
       ]
     }

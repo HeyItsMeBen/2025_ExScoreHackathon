@@ -23,7 +23,7 @@ export class Input {
         this.onArrowPressed(RIGHT);
       }
       if (e.code === "Space") {
-        spacePressed = true;
+        this.spacePressed = true;
       }
     })
 
@@ -42,13 +42,16 @@ export class Input {
         this.onArrowReleased(RIGHT);
       }
       if (e.code === "Space") {
-        spacePressed = false;
+        this.spacePressed = false;
       }
     })
   }
 
   get direction() {
     return this.heldDirections[0];
+  }
+  get space() {
+    return this.spacePressed;
   }
 
   onArrowPressed(direction) {

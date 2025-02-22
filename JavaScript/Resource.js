@@ -5,6 +5,7 @@ class Resources {
     this.toLoad = {
       path: "assests/Locations/path.png",
       paris_slums: "assests/Locations/paris_slums.png",
+      proletariat: "assests/proletariat.png",
     }
     
     if (sprite_gender == "female") {

@@ -15,46 +15,22 @@ console.log("game.js file is connected!");
 //Note: Can avoid CORS restrictions by running --disable-web-security --user-data-dir="C:\chrome_dev". Not recommended if you have a local server instead
 
 let charFacing = DOWN;
-const curLevel = paris_slums;
+const curLevel = 1;
 const canvas = document.querySelector("#game-canvas");
 const ctx = canvas.getContext("2d");
 const input = new Input();
 const speed = 7;
-const update = () =>{
-    sprite.step(1000/60);
-    if (!input.direction){
-        if (charFacing == UP){sprite.animations.play("standUp");}
-        if (charFacing == DOWN){sprite.animations.play("standDown");}
-        if (charFacing == LEFT){sprite.animations.play("standLeft");}
-        if (charFacing == RIGHT){sprite.animations.play("standRight");}
-        return;
+var interacted = false;
+const update = () => {
+    moveSprite(input, sprite);
+    if (input.space === true) {
+        scenes[curLevel].characters.forEach(character => {
+            if (character.position.dist(spritePos) < 300 && !interacted) {
+                console.log("Interacted with character");
+                interacted = true;
+            }
+        });
     }
-    if (input.direction === UP) {
-        console.log(spritePos.y);
-        if (spritePos.y >= 300) {
-            spritePos.y -= speed;
-        }
-        sprite.animations.play("walkUp");
-    }
-    if (input.direction === DOWN) {
-        if (spritePos.y <= 720){
-            spritePos.y += speed;
-        }
-        sprite.animations.play("walkDown");
-    }
-    if (input.direction === LEFT) {
-        if (spritePos.x >= -100){
-            spritePos.x -= speed;
-        }
-        sprite.animations.play("walkLeft");
-    }
-    if (input.direction === RIGHT) {
-        if (spritePos.x <= 1180){
-            spritePos.x += speed;
-        }
-        sprite.animations.play("walkRight");
-    }
-    charFacing = input.direction ?? charFacing;
 }
 const sprite = new Sprite({
     resource: resources.images.sprite,
@@ -80,16 +56,52 @@ const draw = () => {
         ctx.drawImage(bg.image, 0, 0, 1280,720);
     }
     ctx.imageSmoothingEnabled = false;
-    sprite.drawImage(ctx, spritePos.x, spritePos.y);
-    scenes[curLevel].characters.array.forEach(element => {
-        const character = scenes[curLevel].characters[element];
+    
+    scenes[curLevel].characters.forEach(character => {
         character.sprite.drawImage(ctx, character.position.x, character.position.y);
         character.sprite.step(1000/60);
         character.sprite.animations.play("stand");
     });
+    sprite.drawImage(ctx, spritePos.x, spritePos.y);
         
     
 }
 
 const gameLoop = new GameLoop(update, draw);
 gameLoop.start();
+
+const moveSprite = (input, s) => {
+    s.step(1000/60);
+    if (!input.direction){
+        if (charFacing == UP){s.animations.play("standUp");}
+        if (charFacing == DOWN){s.animations.play("standDown");}
+        if (charFacing == LEFT){s.animations.play("standLeft");}
+        if (charFacing == RIGHT){s.animations.play("standRight");}
+        return;
+    }
+    if (input.direction === UP) {
+        if (spritePos.y >= scenes[curLevel].y_bar) {
+            spritePos.y -= speed;
+        }
+        s.animations.play("walkUp");
+    }
+    if (input.direction === DOWN) {
+        if (spritePos.y <= 500){
+            spritePos.y += speed;
+        }
+        s.animations.play("walkDown");
+    }
+    if (input.direction === LEFT) {
+        if (spritePos.x >= -100){
+            spritePos.x -= speed;
+        }
+        s.animations.play("walkLeft");
+    }
+    if (input.direction === RIGHT) {
+        if (spritePos.x <= 1180){
+            spritePos.x += speed;
+        }
+        s.animations.play("walkRight");
+    }
+    charFacing = input.direction ?? charFacing;
+}
