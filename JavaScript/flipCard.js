@@ -98,10 +98,10 @@ if (thirdEstateStatus) {
     thirdEstateBack.src = "../assests/Cards/People/Backside/Third_Estate.png";  // replace with the actual image path
 }
 
-window.addEventListener('beforeunload', () => {
-    localStorage.clear(); // Clear all localStorage data
-    console.log('LocalStorage cleared on session end');
-});
+// window.addEventListener('beforeunload', () => {
+//     localStorage.clear(); // Clear all localStorage data
+//     console.log('LocalStorage cleared on session end');
+// });
 
 // localStorage.setItem('Third_Estate', JSON.stringify(true));
 // localStorage.setItem('King_Louis', JSON.stringify(true));
