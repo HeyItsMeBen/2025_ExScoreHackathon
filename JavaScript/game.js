@@ -20,11 +20,11 @@ const canvas = document.querySelector("#game-canvas");
 const ctx = canvas.getContext("2d");
 const input = new Input();
 const speed = 7;
-const targetX = 60;
-const targetY = 450;
 var spacePopUp = false;
 var speechBubble = false;
+var speechBubble2 = false;
 var interacted = false;
+var curBubble = true;
 const update = () => {
     moveSprite(input, sprite);
     scenes[curLevel].characters.forEach(character => {
@@ -33,9 +33,14 @@ const update = () => {
             if (input.space === true) {
                 interacted = true;
                 speechBubble = true;
-                localStorage.setItem('Third_Estate', JSON.stringify(true));
-                localStorage.setItem('King_Louis', JSON.stringify(true));
-
+                curBubble = 1000;
+                if (input.space === true) {
+                    interacted = true;
+                    console.log('SpeechBubble2!');
+                    speechBubble2 = true;
+                    localStorage.setItem('Third_Estate', JSON.stringify(true));
+                    localStorage.setItem('King_Louis', JSON.stringify(true));
+                }
             }
         }
         else{
@@ -73,7 +78,11 @@ const draw = () => {
         ctx.drawImage(resources.images.space_pop_up.image, spritePos.x - 100, spritePos.y + 50, 300,20);
     }
     if (speechBubble){
-        ctx.drawImage(resources.images.speechbubble1.image, spritePos.x + 50, spritePos.y + 50, 600,40);
+        ctx.drawImage(resources.images.speechbubble1.image, spritePos.x + 100, spritePos.y - 100, 250,187.5);
+    }
+
+    if (speechBubble2){
+        ctx.drawImage(resources.images.speechbubble2.image, 600, 300, 250,187.5);
     }
 
     scenes[curLevel].characters.forEach(character => {

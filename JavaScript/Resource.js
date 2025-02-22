@@ -8,6 +8,7 @@ class Resources {
       proletariat: "assests/proletariat.png",
       space_pop_up: "assests/press_space_to_talk.png",
       speechbubble1: "assests/SpeechBubble_Hey_What_Is_Happening.png",
+      speechbubble2: "assests/SpeechBubble_Proletariat_In_Slums.png",
     }
     
     if (sprite_gender == "female") {
