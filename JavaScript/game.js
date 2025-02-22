@@ -22,26 +22,25 @@ const input = new Input();
 const speed = 7;
 const targetX = 60;
 const targetY = 450;
+var spacePopUp = false;
 
 var interacted = false;
 const update = () => {
     moveSprite(input, sprite);
-    if (input.space === true) {
-        scenes[curLevel].characters.forEach(character => {
-            if (character.position.dist(spritePos) < 300 && !interacted) {
-                console.log("Interacted with character"); //replace with whatever the hell happens
-                if (spritePos.x === targetX && spritePos.y === targetY) {
-                    popupImage.style.display = 'press_space_to_talk.png';  // Show the image
-                    popupImage.style.left = (spritePos.x + 50) + 'px';  // Adjust image position
-                    popupImage.style.top = (spritePos.y + 50) + 'px';
-                  } else {
-                    popupImage.style.display = 'none';  // Hide the image
-                  }
+    scenes[curLevel].characters.forEach(character => {
+        if (character.position.dist(spritePos) < 300 && !interacted) {
+            spacePopUp = true;
+            if (input.space === true) {
                 interacted = true;
+                console.log('hihihihi')
             }
-        });
-    }
+        }
+        else{
+            spacePopUp = false;
+        }
+    });
 }
+
 const sprite = new Sprite({
     resource: resources.images.sprite,
     frameSize: new Vector2(250,250),
@@ -67,6 +66,9 @@ const draw = () => {
     }
     ctx.imageSmoothingEnabled = false;
     
+    if (spacePopUp){
+        ctx.drawImage(resources.images.space_pop_up.image, spritePos.x + 50, spritePos.y + 50, 600,40);
+    }
     scenes[curLevel].characters.forEach(character => {
         character.sprite.drawImage(ctx, character.position.x, character.position.y);
         character.sprite.step(1000/60);
