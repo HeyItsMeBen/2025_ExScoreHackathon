@@ -7,7 +7,7 @@ export class Input {
   constructor() {
 
     this.heldDirections = [];
-
+    this.spacePressed = false;
     document.addEventListener("keydown", (e) => {
       // Also check for dedicated direction list
       if (e.code === "ArrowUp" || e.code === "KeyW") {
@@ -21,6 +21,9 @@ export class Input {
       }
       if (e.code === "ArrowRight" || e.code === "KeyD") {
         this.onArrowPressed(RIGHT);
+      }
+      if (e.code === "Space") {
+        spacePressed = true;
       }
     })
 
@@ -37,6 +40,9 @@ export class Input {
       }
       if (e.code === "ArrowRight" || e.code === "KeyD") {
         this.onArrowReleased(RIGHT);
+      }
+      if (e.code === "Space") {
+        spacePressed = false;
       }
     })
   }

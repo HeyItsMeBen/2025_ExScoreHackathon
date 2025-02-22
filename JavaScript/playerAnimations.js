@@ -43,13 +43,4 @@ const makeStandingFrames = (rootFrame = 0) => {
   export const WALK_UP = makeWalkingFrames(8);
   export const WALK_LEFT = makeWalkingFrames(12);
   
-  export const PICK_UP_DOWN = {
-    duration: 400,
-    frames: [
-      {
-        time: 0,
-        frame: 12
-      }
-    ]
-  }
   

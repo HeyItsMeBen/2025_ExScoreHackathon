@@ -6,6 +6,7 @@ import { DOWN, Input, LEFT, RIGHT, UP } from "./Input.js";
 import { WALK_DOWN, WALK_LEFT, WALK_RIGHT, WALK_UP,STAND_DOWN, STAND_LEFT, STAND_RIGHT, STAND_UP} from "./playerAnimations.js";
 import { FrameIndexPattern } from "./FrameIndexPattern.js";
 import { Animations } from "./Animations.js";
+import {scenes} from "./Levels.js";
 
 
 // game.js
@@ -14,6 +15,7 @@ console.log("game.js file is connected!");
 //Note: Can avoid CORS restrictions by running --disable-web-security --user-data-dir="C:\chrome_dev". Not recommended if you have a local server instead
 
 let charFacing = DOWN;
+const curLevel = paris_slums;
 const canvas = document.querySelector("#game-canvas");
 const ctx = canvas.getContext("2d");
 const input = new Input();
@@ -73,13 +75,19 @@ const sprite = new Sprite({
 });
 const spritePos = new Vector2(60, 450);
 const draw = () => {
-    const bg = resources.images.paris_slums;
+    const bg =scenes[curLevel].background;
     if (bg.isLoaded) {
         ctx.drawImage(bg.image, 0, 0, 1280,720);
     }
     ctx.imageSmoothingEnabled = false;
-
     sprite.drawImage(ctx, spritePos.x, spritePos.y);
+    scenes[curLevel].characters.array.forEach(element => {
+        const character = scenes[curLevel].characters[element];
+        character.sprite.drawImage(ctx, character.position.x, character.position.y);
+        character.sprite.step(1000/60);
+        character.sprite.animations.play("stand");
+    });
+        
     
 }
 
