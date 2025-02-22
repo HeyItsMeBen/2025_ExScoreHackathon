@@ -1,12 +1,12 @@
-let creationNationalAssemblyStatus = JSON.parse(sessionStorage.getItem('creation_national_assembly'));
-let estatesGeneralStatus = JSON.parse(sessionStorage.getItem('estates_general'));
-let frenchEnvelopmentStatus = JSON.parse(sessionStorage.getItem('french_envelopment'));
-let stormBastilleStatus = JSON.parse(sessionStorage.getItem('storm_bastille'));
-let tennisCourtOathStatus = JSON.parse(sessionStorage.getItem('tennis_court_oath'));
-let firstSecondEstateStatus = JSON.parse(sessionStorage.getItem('first_second_estate'));
-let kingLouisStatus = JSON.parse(sessionStorage.getItem('King_Louis'));
-let nationalAssemblyStatus = JSON.parse(sessionStorage.getItem('National_Assembly'));
-let thirdEstateStatus = JSON.parse(sessionStorage.getItem('Third_Estate'));
+let creationNationalAssemblyStatus = JSON.parse(localStorage.getItem('creation_national_assembly'));
+let estatesGeneralStatus = JSON.parse(localStorage.getItem('estates_general'));
+let frenchEnvelopmentStatus = JSON.parse(localStorage.getItem('french_envelopment'));
+let stormBastilleStatus = JSON.parse(localStorage.getItem('storm_bastille'));
+let tennisCourtOathStatus = JSON.parse(localStorage.getItem('tennis_court_oath'));
+let firstSecondEstateStatus = JSON.parse(localStorage.getItem('first_second_estate'));
+let kingLouisStatus = JSON.parse(localStorage.getItem('King_Louis'));
+let nationalAssemblyStatus = JSON.parse(localStorage.getItem('National_Assembly'));
+let thirdEstateStatus = JSON.parse(localStorage.getItem('Third_Estate'));
 
 let creationNationalAssemblyFront = document.getElementById("front1");
 let creationNationalAssemblyBack = document.getElementById("back1");
@@ -34,6 +34,9 @@ let nationalAssemblyBack = document.getElementById("back8");
 
 let thirdEstateFront = document.getElementById("front9");
 let thirdEstateBack = document.getElementById("back9");
+
+const card = document.getElementById("card_received");
+const messageElement = document.getElementById("message");
 
 document.querySelectorAll('.card').forEach(card => {
     card.addEventListener('click', () => {
@@ -95,4 +98,11 @@ if (thirdEstateStatus) {
     thirdEstateBack.src = "../assests/Cards/People/Backside/Third_Estate.png";  // replace with the actual image path
 }
 
+window.addEventListener('beforeunload', () => {
+    localStorage.clear(); // Clear all localStorage data
+    console.log('LocalStorage cleared on session end');
+});
 
+// localStorage.setItem('Third_Estate', JSON.stringify(true));
+// localStorage.setItem('King_Louis', JSON.stringify(true));
+//Uses this in game.js later

@@ -32,8 +32,10 @@ const update = () => {
             spacePopUp = true;
             if (input.space === true) {
                 interacted = true;
-                console.log('SpeechBubble1!');
                 speechBubble = true;
+                localStorage.setItem('Third_Estate', JSON.stringify(true));
+                localStorage.setItem('King_Louis', JSON.stringify(true));
+
             }
         }
         else{
@@ -122,3 +124,8 @@ const moveSprite = (input, s) => {
     }
     charFacing = input.direction ?? charFacing;
 }
+
+window.addEventListener('beforeunload', () => {
+    localStorage.clear(); // Clear all localStorage data
+    console.log('LocalStorage cleared on session end');
+});

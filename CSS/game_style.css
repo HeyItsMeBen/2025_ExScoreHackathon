@@ -62,7 +62,7 @@ canvas{
     color: black;
     font-family: 'Press Start 2P', sans-serif;
     opacity: 0;
-    transform: translateY(-800px); 
+    transform: translateY(-700px); 
     animation: appear 4s ease-out 1; 
 } @keyframes appear {
     0% {
@@ -76,5 +76,10 @@ canvas{
     }
 }
 
-
+#message {
+    font-size: 18px;
+    color: rgb(0, 0, 0); /* You can change this to any color */
+    text-align: center;
+    padding: 10px;
+}
 
