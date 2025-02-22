@@ -1,5 +1,5 @@
 body {
-    overflow: hidden; /* Disables both horizontal and vertical scrolling */
+    overflow-x: hidden; /* Disables both horizontal and vertical scrolling */
 }
 
 .background {
@@ -35,20 +35,19 @@ body {
     align-items: center;
     overflow: visible;
     height: 100vh;  /* Full height */
-    width: 100%
 }
 
 .card {
     width: 200px;
     height: 300px;
     perspective: 1000px; /* Enables 3D effect */
-    display: inline-block;
-    /* transform: translate(-600px, -200px); */
-
+    display: flex;
+    position: absolute;
+    z-index: 11;
   }
     
     .card[data-number = "one"] { 
-    transform: translate(-600px, -200px);
+    transform: translate(0px, 0px);
     }
     .card[data-number = "two"] {
         transform: translate(-300px, -200px);
